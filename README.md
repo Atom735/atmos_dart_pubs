@@ -16,8 +16,11 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | Package | Description | pub.dev |
 |---------|-------------|---------|
 | [atmos_binary_buffer](packages/atmos_binary_buffer) | Binary reader/writer, floats, UUID, LEB128, FourCC | [pub.dev](https://pub.dev/packages/atmos_binary_buffer) |
+| [atmos_jsonc](packages/atmos_jsonc) | Streaming JSONC decoder (comments, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
+| [atmos_vscode_theme](packages/atmos_vscode_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | — |
+| [atmos_vscode_theme_flutter](packages/atmos_vscode_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
 
 ## Development
 

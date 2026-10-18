@@ -1,0 +1,27 @@
+name: atmos_vscode_theme_flutter
+version: 0.1.0
+description: >-
+  Map VS Code / Cursor color themes (via atmos_vscode_theme) to Flutter
+  ColorScheme and ThemeData by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vscode_theme_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vscode_theme: ^0.1.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - vscode
+  - theme
+  - flutter
+  - material

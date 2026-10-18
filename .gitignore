@@ -27,3 +27,6 @@ Thumbs.db
 .vscode/
 *.swp
 *~
+
+# Local junction to VS Code sources (see atmos_decompiler/vscode)
+/vscode/

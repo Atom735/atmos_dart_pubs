@@ -1,0 +1,21 @@
+name: atmos_jsonc
+version: 0.1.0
+description: >-
+  Streaming JSONC decoder for Dart by Atom735: comments, trailing commas,
+  path reviver, UTF-8 byte decode, and typed pull binders.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_jsonc
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  benchmark_harness: ^2.2.2
+  test: ^1.24.0
+
+topics:
+  - json
+  - jsonc
+  - parser
+  - streaming
