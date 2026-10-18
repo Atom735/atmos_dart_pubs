@@ -1,0 +1,17 @@
+name: atmos_dart_pubs
+repository: https://github.com/Atom735/atmos_dart_pubs
+
+packages:
+  - packages/**
+
+command:
+  bootstrap:
+    runPubGetInParallel: true
+
+scripts:
+  analyze:
+    run: melos exec -- dart analyze .
+  test:
+    run: melos exec --fail-fast -- flutter test
+  format:
+    run: melos exec -- dart format .
