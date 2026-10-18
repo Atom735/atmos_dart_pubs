@@ -35,8 +35,8 @@ alwaysApply: false
 1. `dart pub get` (or Melos bootstrap) in the package
 2. `dart analyze` (and tests if present)
 3. Confirm `version`, `CHANGELOG.md`, `README.md` install snippet match
-4. Publish only from the package directory: `dart pub publish`
-5. Never publish with `--force` unless the user explicitly asks
+4. Publish only from the package directory (`packages/<name>`), never from the monorepo root (`publish_to: none`)
+5. Never publish with `--force` unless the user explicitly asks for publish/release
 
 ## Dependencies
 
