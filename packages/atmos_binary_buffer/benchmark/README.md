@@ -8,4 +8,4 @@ dart pub get
 dart run benchmark/run.dart
 ```
 
-Compare before/after optimization changes on the same machine and Dart SDK.
+Published reference numbers and machine setup live in the package [README](../README.md#benchmarks).

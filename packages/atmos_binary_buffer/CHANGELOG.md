@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.1
+
+### EN
+
+- Document reference machine setup and benchmark results in README
+
+### RU
+
+- В README добавлены сетап машины и результаты бенчмарков
+
 ## 2.1.0
 
 ### EN

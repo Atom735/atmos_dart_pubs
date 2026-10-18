@@ -9,7 +9,7 @@ Supports compact integer packing, typed list views, and IEEE 754 helpers
 
 ```yaml
 dependencies:
-  atmos_binary_buffer: ^2.1.0
+  atmos_binary_buffer: ^2.1.1
 ```
 
 ## Import
@@ -64,6 +64,43 @@ When the output size is roughly known, prefer `BinaryWriter.withCapacity(...)` t
 cd packages/atmos_binary_buffer
 dart run benchmark/run.dart
 ```
+
+### Reference machine
+
+| Item | Value |
+|------|-------|
+| OS | Windows 10 Pro 10.0.19045 |
+| CPU | AMD Ryzen 7 5800H (8 cores / 16 threads) |
+| RAM | 39.4 GB |
+| Flutter | 3.16.9 |
+| Dart | 3.2.6 (stable, `windows_x64`) |
+
+Results below were measured on this machine with `package:benchmark_harness` (`dart run benchmark/run.dart`). Lower is better; numbers are approximate RunTime per benchmark iteration.
+
+### Results (atmos_binary_buffer 2.1.1)
+
+| Benchmark | RunTime |
+|-----------|---------|
+| write Int32 ×50000 (prealloc) | ~2130 µs |
+| read Int32 ×50000 | ~645 µs |
+| write Float64 ×50000 (prealloc) | ~6140 µs |
+| read Float64 ×50000 | ~3400 µs |
+| writeSize packed ×50000 (prealloc) | ~1230 µs |
+| readSize packed ×50000 | ~1150 µs |
+| writeListInt32 callback ×4096 | ~287 µs |
+| writeListInt32AV ×4096 | ~121 µs |
+| readListInt32 callback ×4096 | ~297 µs |
+| readListInt32AV ×4096 | ~0.28 µs |
+| float16 encode+decode ×50000 | ~7850 µs |
+| bfloat16 encode+decode ×50000 | ~6190 µs |
+| toBytes after 5000 int32 | ~221 µs |
+| takeBytes after 5000 int32 | ~223 µs |
+
+Notes:
+
+- Prefer `*AV` list APIs for dense numeric data (read AV is ~1000× faster than callback lists here).
+- Use `BinaryWriter.withCapacity` when the output size is roughly known.
+- Re-run locally after changes; absolute times depend on CPU load and power mode.
 
 ## Docs
 
