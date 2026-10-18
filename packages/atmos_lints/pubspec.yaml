@@ -1,0 +1,15 @@
+name: atmos_lints
+version: 1.2.0
+description: >-
+  Shared Dart analyzer and linter presets by Atom735:
+  base (lints), extended (full), and relaxed (_2) variants.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_lints
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=2.15.0 <4.0.0'
+
+topics:
+  - lints
+  - linter
+  - analysis-options

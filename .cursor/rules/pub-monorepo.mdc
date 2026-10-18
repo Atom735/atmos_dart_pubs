@@ -1,0 +1,51 @@
+---
+description: Monorepo layout, Melos, and publishing public Dart packages to pub.dev
+alwaysApply: true
+---
+
+# Public packages monorepo
+
+This repo (`atmos_dart_pubs`) hosts independently published Dart/Flutter packages under `packages/`.
+
+## Toolchain
+
+- Active Flutter SDK: **3.16.9** (and the Dart SDK that ships with it)
+- Target this version for analyze/tests/examples and for `environment` / Flutter constraints unless the user explicitly asks to bump
+- Do not assume newer Flutter/Dart APIs that do not exist in 3.16.9
+
+## Layout
+
+- One package per folder: `packages/<package_name>/`
+- Root `pubspec.yaml` has `publish_to: none` — never publish the root
+- Manage workspace with Melos (`melos.yaml`): `dart run melos bootstrap`
+
+## Editing packages
+
+- Prefer small, reviewable diffs; do not rewrite unrelated packages
+- Keep each package publishable on its own (own `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `README.md`)
+- Public API changes need docs + changelog; avoid silent breaking changes
+- Prefer `atmos_lints` for analysis where the package already uses it
+- Cross-package WIP: use Melos path overrides locally; published versions must use version constraints, not `path:`
+
+## Metadata (required in each package `pubspec.yaml`)
+
+```yaml
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/<package_name>
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+```
+
+- Keep `name`, `description`, `version`, and `environment.sdk` accurate
+- Do not set `publish_to: none` on packages meant for pub.dev
+
+## License
+
+- Root default: BSD 3-Clause (`LICENSE`)
+- If a package has its own `LICENSE`, that file wins for that package — do not silently relicense
+- AI-assisted code is fine; the package license and copyright still apply as published
+
+## When creating a new package
+
+1. Scaffold under `packages/<name>/` with `lib/`, `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `README.md`
+2. Point `repository` / `issue_tracker` at this monorepo
+3. Add a row to the root `README.md` packages table
+4. Run `dart run melos bootstrap`

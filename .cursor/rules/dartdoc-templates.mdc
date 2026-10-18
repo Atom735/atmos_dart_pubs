@@ -1,0 +1,78 @@
+---
+description: DartDoc {@template}/{@macro} conventions (as in atmos_binary_buffer)
+globs: packages/**/*.dart
+alwaysApply: false
+---
+
+# DartDoc templates
+
+Reuse shared docs with dartdoc templates. Reference implementation: `packages/atmos_binary_buffer`.
+
+## Syntax
+
+```dart
+/// {@template atmos.area.topic.en}
+/// Shared English text.
+/// {@endtemplate}
+///
+/// {@template atmos.area.topic.ru}
+/// Общий русский текст.
+/// {@endtemplate}
+
+/// {@macro atmos.area.topic.en}
+///
+/// Member-specific English line.
+///
+/// {@macro atmos.area.topic.ru}
+///
+/// Уникальная русская строка для этого члена.
+void example() {}
+```
+
+- `{@template name}` … `{@endtemplate}` — define once
+- `{@macro name}` — expand that block at the use site
+- Edit the template body in one place; do not copy-paste the same paragraph onto every method
+
+## Naming
+
+`atmos.<area>.<topic>.<lang>`
+
+| Part | Meaning | Examples |
+|------|---------|----------|
+| `area` | type / module | `binaryReader`, `bfloat16`, `binaryBuffer` |
+| `topic` | reusable idea | `scalar`, `list`, `rounding`, `packInt` |
+| `lang` | language | `en`, `ru` |
+
+Large cross-cutting docs may omit `.en`/`.ru` and put both languages inside one template (see `atmos.binaryBuffer.packInt` in `lib/atmos_binary_buffer.dart`).
+
+## Where to host templates
+
+1. **Library / file docs** — templates in the top `library` or file comment (`bfloat16.dart`, `float16.dart`)
+2. **Dummy const** — when templates are not library docs, attach them to an unused private const so dartdoc still sees them:
+
+```dart
+/// {@template atmos.binaryReader.scalar.en}
+/// ...
+/// {@endtemplate}
+// ignore: unused_element
+const Object? _binaryReaderScalarDocTemplate = null;
+```
+
+3. **Main library file** — long shared topics used by reader and writer (`packInt`)
+
+## Bilingual member docs
+
+Always **EN first, then RU**:
+
+1. `{@macro …en}` (and any EN-only specifics / `###` headings)
+2. blank `///` line
+3. `{@macro …ru}` (and RU-only specifics)
+
+Compose macros: a method may include several (`rounding` + `nan`). Only add unique lines that are not already in a template.
+
+## When editing
+
+- New similar API → reuse existing macros; add a new template only for a new shared idea
+- Renaming a template id → update every `{@macro}` that references it
+- Do not delete a template still referenced by macros
+- Prefer `###` section headings inside templates when the block is a named topic (Rounding, NaN, …)

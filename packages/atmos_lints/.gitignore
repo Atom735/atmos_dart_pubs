@@ -1,0 +1,19 @@
+# Pub
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+pubspec.lock
+
+# Build / coverage
+build/
+coverage/
+*.lcov
+doc/api/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

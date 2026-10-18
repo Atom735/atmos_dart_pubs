@@ -1,0 +1,45 @@
+---
+description: Conventions when editing or releasing a package under packages/
+globs: packages/**
+alwaysApply: false
+---
+
+# Editing a public package
+
+## Source and API
+
+- Treat `lib/` (except `lib/src/`) as public API; breaking changes require a major bump
+- Put implementation in `lib/src/`; export intentionally from the main library file
+- Keep DartDoc useful for public members; for bilingual docs prefer EN first, then RU
+- Shared docs: use `{@template}` / `{@macro}` as in `atmos_binary_buffer` (see rule `dartdoc-templates`)
+- Do not add app-only or secret config into a publishable package
+
+## Versioning and changelog
+
+- Follow semver: fix → patch, feature → minor, breaking → major
+- Update `CHANGELOG.md` in the same change as the version bump
+- Changelog style: version heading + short bullets; bilingual EN/RU sections when the package already uses them
+
+```markdown
+## x.y.z
+
+### EN
+- describe user-visible change
+
+### RU
+- описание изменения
+```
+
+## Before suggesting publish
+
+1. `dart pub get` (or Melos bootstrap) in the package
+2. `dart analyze` (and tests if present)
+3. Confirm `version`, `CHANGELOG.md`, `README.md` install snippet match
+4. Publish only from the package directory: `dart pub publish`
+5. Never publish with `--force` unless the user explicitly asks
+
+## Dependencies
+
+- Prefer stable, well-known pub.dev deps; avoid tight upper bounds unless needed
+- Do not depend on unpublished / git deps for a release intended for pub.dev
+- After changing deps, re-check analyze/tests in affected packages
