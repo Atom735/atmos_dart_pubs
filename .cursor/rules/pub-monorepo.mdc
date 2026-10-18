@@ -49,3 +49,8 @@ issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
 2. Point `repository` / `issue_tracker` at this monorepo
 3. Add a row to the root `README.md` packages table
 4. Run `dart run melos bootstrap`
+
+## Git remote
+
+- After a commit the user asked for (зафиксировать / commit / publish flow), **push to `origin` automatically** (`git push -u origin HEAD` if upstream is missing)
+- Do not force-push to `main`/`master` unless the user explicitly requests it
