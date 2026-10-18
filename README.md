@@ -17,7 +17,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 |---------|-------------|---------|
 | [atmos_binary_buffer](packages/atmos_binary_buffer) | Helper for binary buffers | [pub.dev](https://pub.dev/packages/atmos_binary_buffer) |
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
-| [atmos_logger](packages/atmos_logger) | Logger utilities | [pub.dev](https://pub.dev/packages/atmos_logger) |
+| [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 
 ## Development
 

@@ -69,7 +69,7 @@ class LogDataLogEncoder extends LogDataEncoder<String> {
       '$_cEOT';
 }
 
-class _LogDataLogEncoderSink extends ChunkedConversionSink<LogData> {
+class _LogDataLogEncoderSink implements ChunkedConversionSink<LogData> {
   _LogDataLogEncoderSink(this.sink, this.encoder);
 
   final Sink<String> sink;
@@ -116,7 +116,7 @@ class LogDataLogDecoder extends LogDataDecoder<String> {
   }
 }
 
-class _LogDataLogDecoderSink extends ChunkedConversionSink<String> {
+class _LogDataLogDecoderSink implements ChunkedConversionSink<String> {
   _LogDataLogDecoderSink(this.sink, this.decoder);
 
   final Sink<LogData> sink;

@@ -1,4 +1,6 @@
-/// Уровни лоигрования
+/// Log severity levels (lower = more verbose).
+///
+/// Уровни логирования (меньше = подробнее).
 abstract class LogLevel {
   static const all = 0;
   static const trace = 1;

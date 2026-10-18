@@ -32,7 +32,7 @@ class LogDataJsonEncoder extends LogDataEncoder<Map> {
       };
 }
 
-class _LogDataJsonEncoderSink extends ChunkedConversionSink<LogData> {
+class _LogDataJsonEncoderSink implements ChunkedConversionSink<LogData> {
   _LogDataJsonEncoderSink(this.sink, this.encoder);
 
   final Sink<Map> sink;
@@ -63,7 +63,7 @@ class LogDataJsonDecoder extends LogDataDecoder<Map> {
       );
 }
 
-class _LogDataJsonDecoderSink extends ChunkedConversionSink<Map> {
+class _LogDataJsonDecoderSink implements ChunkedConversionSink<Map> {
   _LogDataJsonDecoderSink(this.sink, this.decoder);
 
   final Sink<LogData> sink;

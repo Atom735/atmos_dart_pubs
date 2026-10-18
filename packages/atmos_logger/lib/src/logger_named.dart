@@ -1,7 +1,9 @@
 import 'log_data.dart';
 import 'logger.dart';
 
-/// Логгер который добавляет к сообщению лога свое имя
+/// Logger that sets or nests the record [name].
+///
+/// Логгер, который задаёт или вкладывает имя записи [name].
 class LoggerNamed extends Logger {
   LoggerNamed(this.name, [Logger? subLogger]) : super(subLogger);
 

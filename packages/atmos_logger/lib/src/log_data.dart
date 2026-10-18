@@ -1,23 +1,46 @@
-/// Структура лог файла
+/// Single log record.
+///
+/// Одна запись лога.
 class LogData {
-  const factory LogData(DateTime time, int level, String type, String title,
-      [String body]) = LogData._;
-  const LogData._(this.time, this.level, this.name, this.title,
-      [this.body = '']);
+  const factory LogData(
+    DateTime time,
+    int level,
+    String type,
+    String title, [
+    String body,
+  ]) = LogData._;
 
-  /// Метка времени лога
+  const LogData._(
+    this.time,
+    this.level,
+    this.name,
+    this.title, [
+    this.body = '',
+  ]);
+
+  /// Timestamp of the log entry.
+  ///
+  /// Метка времени лога.
   final DateTime time;
 
-  /// Уровень сообщения
+  /// Severity level (see `LogLevel`).
+  ///
+  /// Уровень сообщения (см. `LogLevel`).
   final int level;
 
-  /// Название логгера отправившего сообщения
+  /// Logger name that produced the message.
+  ///
+  /// Имя логгера, отправившего сообщение.
   final String name;
 
-  /// Заголовок сообщения
+  /// Short message / title.
+  ///
+  /// Заголовок сообщения.
   final String title;
 
-  /// Подробные данные сообщения
+  /// Optional detailed payload.
+  ///
+  /// Подробные данные сообщения.
   final String body;
 
   LogData copyWith({

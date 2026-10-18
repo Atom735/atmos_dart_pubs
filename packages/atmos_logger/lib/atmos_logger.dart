@@ -1,6 +1,8 @@
-/// Support for doing something awesome.
+/// Composable logger for Dart and Flutter.
 ///
-/// More dartdocs go here.
+/// Компонуемый логгер для Dart и Flutter.
+///
+/// Import `atmos_logger_io.dart` when you need `LoggerFile`.
 library atmos_logger;
 
 export 'src/log_data.dart';

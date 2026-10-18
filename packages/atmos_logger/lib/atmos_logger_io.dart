@@ -1,6 +1,8 @@
-/// Support for doing something awesome.
+/// IO entrypoint for `atmos_logger`: includes `LoggerFile`.
 ///
-/// More dartdocs go here.
+/// IO-entrypoint для `atmos_logger`: включает `LoggerFile`.
+///
+/// Requires `dart:io` (VM / desktop / mobile). Not available on web.
 library atmos_logger_io;
 
 export 'atmos_logger.dart';

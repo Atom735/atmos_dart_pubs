@@ -4,12 +4,16 @@ import 'log_data.dart';
 import 'log_level.dart';
 import 'logger_named.dart';
 
-/// Интерфейс логировщика
+/// Base composable logger. Optionally wraps a [subLogger] chain.
+///
+/// Базовый компонуемый логгер. Опционально оборачивает цепочку [subLogger].
 abstract class Logger {
   @literal
   const Logger([this.subLogger]);
 
-  /// Обернутый логгер
+  /// Next logger in the chain.
+  ///
+  /// Следующий логгер в цепочке.
   final Logger? subLogger;
 
   void log(LogData data) => subLogger?.log(data);
@@ -52,8 +56,12 @@ abstract class Logger {
   Future<void> closeThis() async {}
 
   @nonVirtual
-  void call(String msg,
-          [int level = LogLevel.trace, String data = '', String name = '']) =>
+  void call(
+    String msg, [
+    int level = LogLevel.trace,
+    String data = '',
+    String name = '',
+  ]) =>
       log(LogData(DateTime.now(), level, name, msg, data));
 
   /// Trace — вывод всего подряд. На тот случай, если Debug не позволяет

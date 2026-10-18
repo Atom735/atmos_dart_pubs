@@ -19,7 +19,7 @@ abstract class LogDataDecoder<T> extends Converter<T, LogData> {
   const LogDataDecoder();
 }
 
-class LogDataEncoderSink<T> extends ChunkedConversionSink<LogData> {
+class LogDataEncoderSink<T> implements ChunkedConversionSink<LogData> {
   LogDataEncoderSink(this.sink, this.encoder);
 
   final Sink<T> sink;
