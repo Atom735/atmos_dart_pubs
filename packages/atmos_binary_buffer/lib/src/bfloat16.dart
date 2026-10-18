@@ -96,6 +96,8 @@ extension BFloat16XInt on int {
 /// {@macro atmos.bfloat16.rounding.ru}
 ///
 /// {@macro atmos.bfloat16.nan.ru}
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 int doubleToBFloat16(double value) {
   final bits = doubleToFloat32Bits(value);
 
@@ -125,6 +127,8 @@ int doubleToBFloat16(double value) {
 /// Преобразует сырые биты `bfloat16` (`uint16`) обратно в [double].
 ///
 /// {@macro atmos.bfloat16.uint16.ru}
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 double bFloat16ToDouble(int bFloat16) {
   final bits = (bFloat16 & 0xFFFF) << 16;
   return float32BitsToDouble(bits);

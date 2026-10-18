@@ -81,6 +81,8 @@ extension Float16XInt on int {
 ///
 /// {@macro atmos.float16.rounding.ru}
 /// {@macro atmos.float16.special.ru}
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 int doubleToFloat16(double value) {
   final bits = doubleToFloat32Bits(value);
 
@@ -156,6 +158,8 @@ int doubleToFloat16(double value) {
 ///
 /// {@macro atmos.float16.special.ru}
 /// {@macro atmos.float16.uint16.ru}
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 double float16ToDouble(int float16) {
   final h = float16 & 0xFFFF;
 

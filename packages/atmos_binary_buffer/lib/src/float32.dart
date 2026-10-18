@@ -68,8 +68,12 @@ extension Float32XInt on int {
 /// Возвращает битовый паттерн IEEE 754 `float32` как `uint32`.
 ///
 /// {@macro atmos.float32.endian.ru}
+final _f32Scratch = ByteData(4);
+
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 int doubleToFloat32Bits(double value) {
-  final data = ByteData(4)..setFloat32(0, value);
+  final data = _f32Scratch..setFloat32(0, value);
   return data.getUint32(0);
 }
 
@@ -88,7 +92,9 @@ int doubleToFloat32Bits(double value) {
 /// {@macro atmos.float32.uint32.ru}
 ///
 /// {@macro atmos.float32.endian.ru}
+@pragma('vm:prefer-inline')
+@pragma('dart2js:tryInline')
 double float32BitsToDouble(int bits) {
-  final data = ByteData(4)..setUint32(0, bits & 0xFFFFFFFF);
+  final data = _f32Scratch..setUint32(0, bits & 0xFFFFFFFF);
   return data.getFloat32(0);
 }

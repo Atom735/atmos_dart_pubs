@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.2
+
+### EN
+
+- Add `benchmark/` suite (`dart run benchmark/run.dart`)
+- Add `BinaryWriter.withCapacity` for preallocated output buffers
+- Speed up hot paths: inline pragmas on scalars, direct `uint8`/`int8` buffer access, batched packed `writeSize`
+- Reuse a scratch `ByteData` for `float32` bit-cast (helps `float16` / `bfloat16`)
+
+### RU
+
+- Добавлен набор бенчмарков (`dart run benchmark/run.dart`)
+- Добавлен `BinaryWriter.withCapacity` для заранее выделенного буфера
+- Ускорены hot-path: inline на скалярах, прямой доступ к буферу для `uint8`/`int8`, batched packed `writeSize`
+- Переиспользование scratch `ByteData` для bit-cast `float32` (помогает `float16` / `bfloat16`)
+
 ## 2.0.1
 
 ### EN

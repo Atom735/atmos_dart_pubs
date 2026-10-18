@@ -9,7 +9,7 @@ Supports compact integer packing, typed list views, and IEEE 754 helpers
 
 ```yaml
 dependencies:
-  atmos_binary_buffer: ^2.0.1
+  atmos_binary_buffer: ^2.0.2
 ```
 
 ## Import
@@ -52,6 +52,15 @@ void main() {
 ```
 
 See [`example/example.dart`](example/example.dart) for more scenarios (packed sizes, zigzag, endian, typed views).
+
+When the output size is roughly known, prefer `BinaryWriter.withCapacity(...)` to avoid grow/copy churn.
+
+## Benchmarks
+
+```bash
+cd packages/atmos_binary_buffer
+dart run benchmark/run.dart
+```
 
 ## Docs
 

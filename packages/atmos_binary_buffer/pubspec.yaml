@@ -1,5 +1,5 @@
 name: atmos_binary_buffer
-version: 2.0.1
+version: 2.0.2
 description: >-
   Binary reader/writer for Dart with packed integers, typed list views,
   and IEEE 754 float16/bfloat16/float32 helpers by Atom735.
@@ -11,6 +11,7 @@ environment:
 
 dev_dependencies:
   atmos_lints: ^1.2.0
+  benchmark_harness: ^2.2.2
   test: ^1.20.2
 
 topics:

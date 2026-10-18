@@ -17,6 +17,16 @@ class BinaryWriter implements BytesBuilder {
   /// Создаёт writer с опциональным [endian].
   BinaryWriter([Endian endian = Endian.big]) : this._(_emptyList, endian);
 
+  /// Creates writer with a preallocated buffer of [capacity] bytes.
+  ///
+  /// Useful when the approximate output size is known in advance.
+  ///
+  /// Создаёт writer с заранее выделенным буфером на [capacity] байт.
+  ///
+  /// Полезно, когда примерный размер результата известен заранее.
+  BinaryWriter.withCapacity(int capacity, [Endian endian = Endian.big])
+      : this._(capacity > 0 ? Uint8List(capacity) : _emptyList, endian);
+
   /// Creates writer over an existing [buffer].
   ///
   /// Создаёт writer поверх существующего [buffer].
@@ -166,6 +176,8 @@ class BinaryWriter implements BytesBuilder {
   /// Writes IEEE 754 `float32`.
   ///
   /// Записывает IEEE 754 `float32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeFloat32(double val) {
     _reserveBytes(4);
     _byteData.setFloat32(_length, val, endian);
@@ -196,6 +208,8 @@ class BinaryWriter implements BytesBuilder {
   /// Writes IEEE 754 `float64`.
   ///
   /// Записывает IEEE 754 `float64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeFloat64(double val) {
     _reserveBytes(8);
     _byteData.setFloat64(_length, val, endian);
@@ -234,6 +248,8 @@ class BinaryWriter implements BytesBuilder {
   /// Writes signed `int16`.
   ///
   /// Записывает знаковый `int16`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeInt16(int val) {
     _reserveBytes(2);
     _byteData.setInt16(_length, val, endian);
@@ -247,6 +263,8 @@ class BinaryWriter implements BytesBuilder {
   /// Writes signed `int32`.
   ///
   /// Записывает знаковый `int32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeInt32(int val) {
     _reserveBytes(4);
     _byteData.setInt32(_length, val, endian);
@@ -260,6 +278,8 @@ class BinaryWriter implements BytesBuilder {
   /// Writes signed `int64`.
   ///
   /// Записывает знаковый `int64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeInt64(int val) {
     _reserveBytes(8);
     _byteData.setInt64(_length, val, endian);
@@ -273,10 +293,13 @@ class BinaryWriter implements BytesBuilder {
   /// Writes signed `int8`.
   ///
   /// Записывает знаковый `int8`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeInt8(int val) {
-    _reserveBytes(1);
-    _byteData.setInt8(_length, val);
-    _length += 1;
+    if (_buffer.length == _length) {
+      _grow(_length);
+    }
+    _buffer[_length++] = val;
   }
 
   /// {@template atmos.binaryWriter.intWidth.en}
@@ -843,6 +866,8 @@ class BinaryWriter implements BytesBuilder {
   /// {@macro atmos.binaryWriter.scalar.ru}
   ///
   /// Записывает беззнаковый `uint16`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeUint16(int val) {
     _reserveBytes(2);
     _byteData.setUint16(_length, val, endian);
@@ -856,6 +881,8 @@ class BinaryWriter implements BytesBuilder {
   /// {@macro atmos.binaryWriter.scalar.ru}
   ///
   /// Записывает беззнаковый `uint32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeUint32(int val) {
     _reserveBytes(4);
     _byteData.setUint32(_length, val, endian);
@@ -869,6 +896,8 @@ class BinaryWriter implements BytesBuilder {
   /// {@macro atmos.binaryWriter.scalar.ru}
   ///
   /// Записывает беззнаковый `uint64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeUint64(int val) {
     _reserveBytes(8);
     _byteData.setUint64(_length, val, endian);
@@ -882,10 +911,13 @@ class BinaryWriter implements BytesBuilder {
   /// {@macro atmos.binaryWriter.scalar.ru}
   ///
   /// Записывает беззнаковый `uint8`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   void writeUint8(int val) {
-    _reserveBytes(1);
-    _byteData.setUint8(_length, val);
-    _length += 1;
+    if (_buffer.length == _length) {
+      _grow(_length);
+    }
+    _buffer[_length++] = val;
   }
 
   void _grow(int required) {
@@ -943,75 +975,107 @@ class BinaryWriter implements BytesBuilder {
           return count;
         }
         if (n < 0x4000) {
-          writeUint8(((n >> 8) & 0xFF) | 0x80);
-          writeUint8(n & 0xFF);
+          _reserveBytes(2);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 8) & 0xFF) | 0x80;
+          buf[o + 1] = n & 0xFF;
+          _length = o + 2;
           return count;
         }
         if (n < 0x200000) {
-          writeUint8(((n >> 16) & 0xFF) | 0xC0);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(3);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 16) & 0xFF) | 0xC0;
+          buf[o + 1] = (n >> 8) & 0xFF;
+          buf[o + 2] = n & 0xFF;
+          _length = o + 3;
           return count;
         }
 
         if (n < 0x10000000) {
-          writeUint8(((n >> 24) & 0xFF) | 0xE0);
-          writeUint8((n >> 16) & 0xFF);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(4);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 24) & 0xFF) | 0xE0;
+          buf[o + 1] = (n >> 16) & 0xFF;
+          buf[o + 2] = (n >> 8) & 0xFF;
+          buf[o + 3] = n & 0xFF;
+          _length = o + 4;
           return count;
         }
 
         if (n < 0x0800000000) {
-          writeUint8(((n >> 32) & 0xFF) | 0xF0);
-          writeUint8((n >> 24) & 0xFF);
-          writeUint8((n >> 16) & 0xFF);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(5);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 32) & 0xFF) | 0xF0;
+          buf[o + 1] = (n >> 24) & 0xFF;
+          buf[o + 2] = (n >> 16) & 0xFF;
+          buf[o + 3] = (n >> 8) & 0xFF;
+          buf[o + 4] = n & 0xFF;
+          _length = o + 5;
           return count;
         }
 
         if (n < 0x040000000000) {
-          writeUint8(((n >> 40) & 0xFF) | 0xF8);
-          writeUint8((n >> 32) & 0xFF);
-          writeUint8((n >> 24) & 0xFF);
-          writeUint8((n >> 16) & 0xFF);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(6);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 40) & 0xFF) | 0xF8;
+          buf[o + 1] = (n >> 32) & 0xFF;
+          buf[o + 2] = (n >> 24) & 0xFF;
+          buf[o + 3] = (n >> 16) & 0xFF;
+          buf[o + 4] = (n >> 8) & 0xFF;
+          buf[o + 5] = n & 0xFF;
+          _length = o + 6;
           return count;
         }
 
         if (n < 0x02000000000000) {
-          writeUint8(((n >> 48) & 0xFF) | 0xFC);
-          writeUint8((n >> 40) & 0xFF);
-          writeUint8((n >> 32) & 0xFF);
-          writeUint8((n >> 24) & 0xFF);
-          writeUint8((n >> 16) & 0xFF);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(7);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 48) & 0xFF) | 0xFC;
+          buf[o + 1] = (n >> 40) & 0xFF;
+          buf[o + 2] = (n >> 32) & 0xFF;
+          buf[o + 3] = (n >> 24) & 0xFF;
+          buf[o + 4] = (n >> 16) & 0xFF;
+          buf[o + 5] = (n >> 8) & 0xFF;
+          buf[o + 6] = n & 0xFF;
+          _length = o + 7;
           return count;
         }
         if (n < 0x0100000000000000) {
-          writeUint8(((n >> 56) & 0xFF) | 0xFE);
-          writeUint8((n >> 48) & 0xFF);
-          writeUint8((n >> 40) & 0xFF);
-          writeUint8((n >> 32) & 0xFF);
-          writeUint8((n >> 24) & 0xFF);
-          writeUint8((n >> 16) & 0xFF);
-          writeUint8((n >> 8) & 0xFF);
-          writeUint8(n & 0xFF);
+          _reserveBytes(8);
+          final buf = _buffer;
+          final o = _length;
+          buf[o] = ((n >> 56) & 0xFF) | 0xFE;
+          buf[o + 1] = (n >> 48) & 0xFF;
+          buf[o + 2] = (n >> 40) & 0xFF;
+          buf[o + 3] = (n >> 32) & 0xFF;
+          buf[o + 4] = (n >> 24) & 0xFF;
+          buf[o + 5] = (n >> 16) & 0xFF;
+          buf[o + 6] = (n >> 8) & 0xFF;
+          buf[o + 7] = n & 0xFF;
+          _length = o + 8;
           return count;
         }
 
-        writeUint8(0xFF);
-        writeUint8((n >> 56) & 0xFF);
-        writeUint8((n >> 48) & 0xFF);
-        writeUint8((n >> 40) & 0xFF);
-        writeUint8((n >> 32) & 0xFF);
-        writeUint8((n >> 24) & 0xFF);
-        writeUint8((n >> 16) & 0xFF);
-        writeUint8((n >> 8) & 0xFF);
-        writeUint8(n & 0xFF);
+        _reserveBytes(9);
+        final buf = _buffer;
+        final o = _length;
+        buf[o] = 0xFF;
+        buf[o + 1] = (n >> 56) & 0xFF;
+        buf[o + 2] = (n >> 48) & 0xFF;
+        buf[o + 3] = (n >> 40) & 0xFF;
+        buf[o + 4] = (n >> 32) & 0xFF;
+        buf[o + 5] = (n >> 24) & 0xFF;
+        buf[o + 6] = (n >> 16) & 0xFF;
+        buf[o + 7] = (n >> 8) & 0xFF;
+        buf[o + 8] = n & 0xFF;
+        _length = o + 9;
         return count;
       case 1:
         writeUint8(count);

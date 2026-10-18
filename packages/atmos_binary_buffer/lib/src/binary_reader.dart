@@ -159,6 +159,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает IEEE 754 `float32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   double readFloat32() {
     _reserveBytes(4);
     _offset += 4;
@@ -179,6 +181,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает IEEE 754 `float64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   double readFloat64() {
     _reserveBytes(8);
     _offset += 8;
@@ -219,6 +223,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает знаковый `int16`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readInt16() {
     _reserveBytes(2);
     _offset += 2;
@@ -234,6 +240,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает знаковый `int32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readInt32() {
     _reserveBytes(4);
     _offset += 4;
@@ -249,6 +257,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает знаковый `int64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readInt64() {
     _reserveBytes(8);
     _offset += 8;
@@ -264,10 +274,12 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает знаковый `int8`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readInt8() {
     _reserveBytes(1);
-    _offset += 1;
-    return _byteData.getInt8(_offset - 1);
+    final v = _buffer[_offset++];
+    return v < 0x80 ? v : v - 0x100;
   }
 
   int i8() => readInt8();
@@ -722,10 +734,11 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает беззнаковый `uint8`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readUint8() {
     _reserveBytes(1);
-    _offset += 1;
-    return _byteData.getUint8(_offset - 1);
+    return _buffer[_offset++];
   }
 
   /// {@macro atmos.binaryReader.scalar.en}
@@ -735,6 +748,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает беззнаковый `uint16`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readUint16() {
     _reserveBytes(2);
     _offset += 2;
@@ -748,6 +763,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает беззнаковый `uint32`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readUint32() {
     _reserveBytes(4);
     _offset += 4;
@@ -761,6 +778,8 @@ class BinaryReader {
   /// {@macro atmos.binaryReader.scalar.ru}
   ///
   /// Считывает беззнаковый `uint64`.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
   int readUint64() {
     _reserveBytes(8);
     _offset += 8;
