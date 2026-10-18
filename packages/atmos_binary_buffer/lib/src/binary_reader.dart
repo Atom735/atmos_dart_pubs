@@ -14,7 +14,7 @@ import 'utils.dart';
 /// Считывает одно скалярное значение из текущей позиции и сдвигает указатель
 /// на размер значения.
 /// {@endtemplate}
-// ignore: unused_element
+// ignore: unused_element, use_late_for_private_fields_and_variables
 const Object? _binaryReaderScalarDocTemplate = null;
 
 /// {@template atmos.binaryReader.floatAliases.en}
@@ -28,7 +28,7 @@ const Object? _binaryReaderScalarDocTemplate = null;
 /// - `rF16`, `rF32`, `rF64` для float-значений.
 /// - `rBF16` для bfloat16.
 /// {@endtemplate}
-// ignore: unused_element
+// ignore: unused_element, use_late_for_private_fields_and_variables
 const Object? _binaryReaderFloatAliasesDocTemplate = null;
 
 /// {@template atmos.binaryReader.list.en}
@@ -40,7 +40,7 @@ const Object? _binaryReaderFloatAliasesDocTemplate = null;
 /// Считывает список, используя `csz` как размер кодирования длины, если
 /// `size` не задан явно.
 /// {@endtemplate}
-// ignore: unused_element
+// ignore: unused_element, use_late_for_private_fields_and_variables
 const Object? _binaryReaderListDocTemplate = null;
 
 /// {@template atmos.binaryReader.av.en}
@@ -56,7 +56,7 @@ const Object? _binaryReaderListDocTemplate = null;
 /// Возвращённый список ссылается на буфер ридера; пока список жив, память
 /// буфера также остаётся занятой.
 /// {@endtemplate}
-// ignore: unused_element
+// ignore: unused_element, use_late_for_private_fields_and_variables
 const Object? _binaryReaderAvDocTemplate = null;
 
 /// ## BinaryReader
@@ -97,8 +97,11 @@ class BinaryReader {
     int offsetInBytes = 0,
     int? lengthInBytes,
   }) : this._(
-          Uint8List.view(buffer, offsetInBytes,
-              lengthInBytes ?? (buffer.lengthInBytes - offsetInBytes)),
+          Uint8List.view(
+            buffer,
+            offsetInBytes,
+            lengthInBytes ?? (buffer.lengthInBytes - offsetInBytes),
+          ),
           endian,
         );
 
@@ -325,7 +328,10 @@ class BinaryReader {
     _reserveBytes(l * 4);
     _offset += l * 4;
     return Float32List.view(
-        _buffer.buffer, _offset + _byteDataOffset - l * 4, l);
+      _buffer.buffer,
+      _offset + _byteDataOffset - l * 4,
+      l,
+    );
   }
 
   /// {@macro atmos.binaryReader.av.en}
@@ -338,7 +344,10 @@ class BinaryReader {
     _reserveBytes(l * 8);
     _offset += l * 8;
     return Float64List.view(
-        _buffer.buffer, _offset + _byteDataOffset - l * 8, l);
+      _buffer.buffer,
+      _offset + _byteDataOffset - l * 8,
+      l,
+    );
   }
 
   /// {@macro atmos.binaryReader.av.en}
@@ -399,7 +408,10 @@ class BinaryReader {
     _reserveBytes(l * 2);
     _offset += l * 2;
     return Uint16List.view(
-        _buffer.buffer, _offset + _byteDataOffset - l * 2, l);
+      _buffer.buffer,
+      _offset + _byteDataOffset - l * 2,
+      l,
+    );
   }
 
   /// {@macro atmos.binaryReader.av.en}
@@ -412,7 +424,10 @@ class BinaryReader {
     _reserveBytes(l * 4);
     _offset += l * 4;
     return Uint32List.view(
-        _buffer.buffer, _offset + _byteDataOffset - l * 4, l);
+      _buffer.buffer,
+      _offset + _byteDataOffset - l * 4,
+      l,
+    );
   }
 
   Uint64List readListUint64AV({int csz = 0, int? size}) {
@@ -422,7 +437,10 @@ class BinaryReader {
     _reserveBytes(l * 8);
     _offset += l * 8;
     return Uint64List.view(
-        _buffer.buffer, _offset + _byteDataOffset - l * 8, l);
+      _buffer.buffer,
+      _offset + _byteDataOffset - l * 8,
+      l,
+    );
   }
 
   /// {@macro atmos.binaryReader.list.en}

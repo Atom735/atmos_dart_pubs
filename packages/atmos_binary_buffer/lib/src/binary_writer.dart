@@ -41,9 +41,13 @@ class BinaryWriter implements BytesBuilder {
     int offsetInBytes = 0,
     int? lengthInBytes,
   }) : this._(
-            Uint8List.view(buffer, offsetInBytes,
-                lengthInBytes ?? (buffer.lengthInBytes - offsetInBytes)),
-            endian);
+          Uint8List.view(
+            buffer,
+            offsetInBytes,
+            lengthInBytes ?? (buffer.lengthInBytes - offsetInBytes),
+          ),
+          endian,
+        );
 
   BinaryWriter._(this._buffer, [this.endian = Endian.big]);
 

@@ -1,11 +1,20 @@
 name: atmos_binary_buffer
-version: 2.0.0
-description: 'Dart helper package to work with binary buffers by Atom735'
+version: 2.0.1
+description: >-
+  Binary reader/writer for Dart with packed integers, typed list views,
+  and IEEE 754 float16/bfloat16/float32 helpers by Atom735.
 repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_binary_buffer
 issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
 environment:
-  sdk: '>=2.16.1 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dev_dependencies:
   atmos_lints: ^1.2.0
   test: ^1.20.2
+
+topics:
+  - binary
+  - buffer
+  - serialization
+  - encoding

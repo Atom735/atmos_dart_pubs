@@ -1,4 +1,20 @@
-# Changes
+# Changelog
+
+## 2.0.1
+
+### EN
+
+- Raise SDK constraint to `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9 toolchain)
+- Refresh package metadata (`description`, `topics`, monorepo links)
+- Polish README, LICENSE, and `.gitignore`; exclude `example/` from package analyze
+- Fix `full_2` analyzer nits (trailing commas, dartdoc template anchors)
+
+### RU
+
+- Поднят SDK до `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9)
+- Обновлены метаданные пакета (`description`, `topics`, ссылки монорепо)
+- Причёсаны README, LICENSE и `.gitignore`; `example/` исключён из analyze пакета
+- Исправлены замечания `full_2` (trailing commas, якоря dartdoc-шаблонов)
 
 ## 2.0.0
 
