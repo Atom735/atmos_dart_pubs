@@ -205,9 +205,11 @@ import 'src/binary_writer.dart';
 export 'src/bfloat16.dart';
 export 'src/binary_reader.dart';
 export 'src/binary_writer.dart';
+export 'src/epoch_unit.dart';
 export 'src/float16.dart';
 export 'src/float32.dart';
 export 'src/utils.dart';
+export 'src/uuid.dart';
 
 extension AtmosBinaryBufferXUint8List on TypedData {
   /// Creates [BinaryReader] over an existing [TypedData] preserving its visible byte range.

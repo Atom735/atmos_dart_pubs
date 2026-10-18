@@ -1,8 +1,8 @@
 name: atmos_binary_buffer
-version: 2.0.2
+version: 2.1.0
 description: >-
   Binary reader/writer for Dart with packed integers, typed list views,
-  and IEEE 754 float16/bfloat16/float32 helpers by Atom735.
+  IEEE floats, UUID, LEB128, FourCC, and epoch time helpers by Atom735.
 repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_binary_buffer
 issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
 

@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'bfloat16.dart';
+import 'epoch_unit.dart';
 import 'float16.dart';
 import 'utils.dart';
+import 'uuid.dart';
 
 /// {@template atmos.binaryReader.scalar.en}
 /// Reads one scalar value from the current offset and advances it by value
@@ -147,10 +149,161 @@ class BinaryReader {
 
   static final _emptyBuffer = Uint8List.fromList(const []).buffer;
 
-  /// Reads Unix epoch milliseconds as [DateTime].
+  /// Reads Unix epoch as [DateTime].
   ///
-  /// Считывает миллисекунды Unix epoch как [DateTime].
-  DateTime readDateTime() => DateTime.fromMillisecondsSinceEpoch(readInt64());
+  /// Default unit is [EpochUnit.milliseconds] (compatible with older API).
+  ///
+  /// Считывает Unix epoch как [DateTime].
+  ///
+  /// По умолчанию [EpochUnit.milliseconds] (совместимо со старым API).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  DateTime readDateTime([EpochUnit unit = EpochUnit.milliseconds]) {
+    final v = readInt64();
+    switch (unit) {
+      case EpochUnit.seconds:
+        return DateTime.fromMillisecondsSinceEpoch(v * 1000);
+      case EpochUnit.milliseconds:
+        return DateTime.fromMillisecondsSinceEpoch(v);
+      case EpochUnit.microseconds:
+        return DateTime.fromMicrosecondsSinceEpoch(v);
+    }
+  }
+
+  /// Reads a [Duration] encoded as signed int64 in [unit].
+  ///
+  /// Default unit is [EpochUnit.microseconds] (native [Duration] resolution).
+  ///
+  /// Считывает [Duration] как signed int64 в [unit].
+  ///
+  /// По умолчанию [EpochUnit.microseconds].
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  Duration readDuration([EpochUnit unit = EpochUnit.microseconds]) {
+    final v = readInt64();
+    switch (unit) {
+      case EpochUnit.seconds:
+        return Duration(seconds: v);
+      case EpochUnit.milliseconds:
+        return Duration(milliseconds: v);
+      case EpochUnit.microseconds:
+        return Duration(microseconds: v);
+    }
+  }
+
+  /// Reads a boolean as one byte (`0` = false, otherwise true).
+  ///
+  /// Считывает boolean как один байт (`0` = false, иначе true).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  bool readBool() => readUint8() != 0;
+
+  /// Reads exactly [length] bytes as a view over the source buffer.
+  ///
+  /// Считывает ровно [length] байт как view поверх исходного буфера.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  Uint8List readBytes(int length) {
+    if (length < 0) {
+      throw ArgumentError.value(length, 'length', 'must be non-negative');
+    }
+    if (length == 0) return Uint8List.view(_emptyBuffer, 0, 0);
+    _reserveBytes(length);
+    final view = Uint8List.view(
+      _buffer.buffer,
+      _offset + _byteDataOffset,
+      length,
+    );
+    _offset += length;
+    return view;
+  }
+
+  /// Length-prefixed byte blob (same encoding as [readListUint8]).
+  ///
+  /// Blob с префиксом длины (тот же формат, что [readListUint8]).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  Uint8List readBytesSized({int csz = 0, int? size}) =>
+      readListUint8(csz: csz, size: size);
+
+  /// Reads a 4-character FourCC / magic as ASCII bytes in file order.
+  ///
+  /// Считывает 4-символьный FourCC / magic как ASCII байты в порядке файла.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  String readFourCC() => String.fromCharCodes([
+        readUint8(),
+        readUint8(),
+        readUint8(),
+        readUint8(),
+      ]);
+
+  /// Reads a 16-byte [Uuid].
+  ///
+  /// Считывает 16-байтовый [Uuid].
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  Uuid readUuid() => Uuid(Uint8List.fromList(readBytes(Uuid.length)));
+
+  /// Reads a NUL-terminated UTF-8 C string (without the trailing `0` byte).
+  ///
+  /// Считывает NUL-terminated UTF-8 C-строку (без завершающего байта `0`).
+  String readCString({
+    Converter<List<int>, String> decoder = const Utf8Decoder(),
+  }) {
+    final start = _offset;
+    while (true) {
+      _reserveBytes(1);
+      if (_buffer[_offset] == 0) {
+        final bytes = Uint8List.view(
+          _buffer.buffer,
+          start + _byteDataOffset,
+          _offset - start,
+        );
+        _offset++; // skip NUL
+        return decoder.convert(bytes);
+      }
+      _offset++;
+    }
+  }
+
+  /// Reads an unsigned LEB128 / ULEB128 integer (DWARF / WASM style).
+  ///
+  /// Считывает беззнаковое LEB128 / ULEB128 (стиль DWARF / WASM).
+  int readUleb128() {
+    var result = 0;
+    var shift = 0;
+    while (true) {
+      final b = readUint8();
+      result |= (b & 0x7F) << shift;
+      if ((b & 0x80) == 0) return result;
+      shift += 7;
+      if (shift > 63) {
+        throw const FormatException('ULEB128 value is too large');
+      }
+    }
+  }
+
+  /// Reads a signed LEB128 / SLEB128 integer (DWARF / WASM style).
+  ///
+  /// Считывает знаковое LEB128 / SLEB128 (стиль DWARF / WASM).
+  int readSleb128() {
+    var result = 0;
+    var shift = 0;
+    var b = 0;
+    do {
+      b = readUint8();
+      result |= (b & 0x7F) << shift;
+      shift += 7;
+      if (shift > 70) {
+        throw const FormatException('SLEB128 value is too large');
+      }
+    } while ((b & 0x80) != 0);
+    if (shift < 64 && (b & 0x40) != 0) {
+      result |= -1 << shift;
+    }
+    return result;
+  }
 
   /// {@macro atmos.binaryReader.scalar.en}
   ///

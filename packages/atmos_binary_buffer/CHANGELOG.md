@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.1.0
+
+### EN
+
+- Add `read/writeBool`, `read/writeBytes`, `read/writeBytesSized`
+- Add `read/writeFourCC`, `read/writeUuid` (+ `Uuid` type), `read/writeCString`
+- Add `EpochUnit` and extend `read/writeDateTime`; add `read/writeDuration`
+- Add DWARF/WASM-style `read/writeUleb128` and `read/writeSleb128`
+
+### RU
+
+- Добавлены `read/writeBool`, `read/writeBytes`, `read/writeBytesSized`
+- Добавлены `read/writeFourCC`, `read/writeUuid` (+ тип `Uuid`), `read/writeCString`
+- Добавлен `EpochUnit`, расширены `read/writeDateTime`; добавлены `read/writeDuration`
+- Добавлены `read/writeUleb128` и `read/writeSleb128` в стиле DWARF/WASM
+
 ## 2.0.2
 
 ### EN

@@ -9,7 +9,7 @@ Supports compact integer packing, typed list views, and IEEE 754 helpers
 
 ```yaml
 dependencies:
-  atmos_binary_buffer: ^2.0.2
+  atmos_binary_buffer: ^2.1.0
 ```
 
 ## Import
@@ -25,6 +25,9 @@ import 'package:atmos_binary_buffer/atmos_binary_buffer.dart';
 - Typed list methods and aligned typed-view methods (`*AV`)
 - `float16` and `bfloat16` read/write (including list helpers)
 - `float32` bit reinterpretation helpers
+- `bool`, raw/sized `bytes`, FourCC, NUL-terminated C strings
+- `Uuid` (16 bytes), `DateTime` / `Duration` via `EpochUnit`
+- ULEB128 / SLEB128 (DWARF / WASM style)
 - Extensions: `typedData.reader` / `.writer`, `byteBuffer.reader` / `.writer`
 
 ## Quick example

@@ -2,8 +2,10 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'bfloat16.dart';
+import 'epoch_unit.dart';
 import 'float16.dart';
 import 'utils.dart';
+import 'uuid.dart';
 
 /// ## BinaryWriter
 /// Writer for a growable binary buffer with helpers for primitive
@@ -164,10 +166,162 @@ class BinaryWriter implements BytesBuilder {
   /// внутреннюю длину на размер значения.
   /// {@endtemplate}
   ///
-  /// Writes [DateTime] as Unix epoch milliseconds.
+  /// Writes [DateTime] as Unix epoch int64.
   ///
-  /// Записывает [DateTime] как миллисекунды Unix epoch.
-  void writeDateTime(DateTime val) => writeInt64(val.millisecondsSinceEpoch);
+  /// Default unit is [EpochUnit.milliseconds] (compatible with older API).
+  /// Uses UTC instant (`toUtc()`).
+  ///
+  /// Записывает [DateTime] как Unix epoch int64.
+  ///
+  /// По умолчанию [EpochUnit.milliseconds]. Берётся UTC-instant (`toUtc()`).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeDateTime(
+    DateTime val, [
+    EpochUnit unit = EpochUnit.milliseconds,
+  ]) {
+    final utc = val.toUtc();
+    switch (unit) {
+      case EpochUnit.seconds:
+        writeInt64(utc.millisecondsSinceEpoch ~/ 1000);
+        return;
+      case EpochUnit.milliseconds:
+        writeInt64(utc.millisecondsSinceEpoch);
+        return;
+      case EpochUnit.microseconds:
+        writeInt64(utc.microsecondsSinceEpoch);
+        return;
+    }
+  }
+
+  /// Writes a [Duration] as signed int64 in [unit].
+  ///
+  /// Default unit is [EpochUnit.microseconds].
+  ///
+  /// Записывает [Duration] как signed int64 в [unit].
+  ///
+  /// По умолчанию [EpochUnit.microseconds].
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeDuration(
+    Duration val, [
+    EpochUnit unit = EpochUnit.microseconds,
+  ]) {
+    switch (unit) {
+      case EpochUnit.seconds:
+        writeInt64(val.inSeconds);
+        return;
+      case EpochUnit.milliseconds:
+        writeInt64(val.inMilliseconds);
+        return;
+      case EpochUnit.microseconds:
+        writeInt64(val.inMicroseconds);
+        return;
+    }
+  }
+
+  /// Writes a boolean as one byte (`1` / `0`).
+  ///
+  /// Записывает boolean как один байт (`1` / `0`).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeBool(bool val) => writeUint8(val ? 1 : 0);
+
+  /// Writes raw [bytes] without a length prefix.
+  ///
+  /// Записывает сырые [bytes] без префикса длины.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeBytes(List<int> bytes) {
+    final n = bytes.length;
+    if (n == 0) return;
+    _reserveBytes(n);
+    _buffer.setRange(_length, _length + n, bytes);
+    _length += n;
+  }
+
+  /// Length-prefixed byte blob (same encoding as [writeListUint8]).
+  ///
+  /// Blob с префиксом длины (тот же формат, что [writeListUint8]).
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeBytesSized(List<int> bytes, {int csz = 0, int? size}) =>
+      writeListUint8(bytes, csz: csz, size: size);
+
+  /// Writes a 4-character FourCC / magic as ASCII bytes in file order.
+  ///
+  /// Записывает 4-символьный FourCC / magic как ASCII байты в порядке файла.
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeFourCC(String code) {
+    if (code.length != 4) {
+      throw ArgumentError.value(code, 'code', 'FourCC must be 4 characters');
+    }
+    writeUint8(code.codeUnitAt(0));
+    writeUint8(code.codeUnitAt(1));
+    writeUint8(code.codeUnitAt(2));
+    writeUint8(code.codeUnitAt(3));
+  }
+
+  /// Writes a 16-byte [Uuid].
+  ///
+  /// Записывает 16-байтовый [Uuid].
+  @pragma('vm:prefer-inline')
+  @pragma('dart2js:tryInline')
+  void writeUuid(Uuid uuid) => writeBytes(uuid.bytes);
+
+  /// Writes a NUL-terminated UTF-8 C string.
+  ///
+  /// Записывает NUL-terminated UTF-8 C-строку.
+  void writeCString(
+    String val, {
+    Converter<String, List<int>> encoder = const Utf8Encoder(),
+  }) {
+    writeBytes(encoder.convert(val));
+    writeUint8(0);
+  }
+
+  /// Writes an unsigned LEB128 / ULEB128 integer (DWARF / WASM style).
+  ///
+  /// Записывает беззнаковое LEB128 / ULEB128 (стиль DWARF / WASM).
+  void writeUleb128(int value) {
+    if (value < 0) {
+      throw ArgumentError.value(
+        value,
+        'value',
+        'ULEB128 requires non-negative',
+      );
+    }
+    var v = value;
+    while (true) {
+      final b = v & 0x7F;
+      v >>= 7;
+      if (v == 0) {
+        writeUint8(b);
+        return;
+      }
+      writeUint8(b | 0x80);
+    }
+  }
+
+  /// Writes a signed LEB128 / SLEB128 integer (DWARF / WASM style).
+  ///
+  /// Записывает знаковое LEB128 / SLEB128 (стиль DWARF / WASM).
+  void writeSleb128(int value) {
+    var v = value;
+    var more = true;
+    while (more) {
+      var byte = v & 0x7F;
+      v >>= 7;
+      final signBit = byte & 0x40;
+      if ((v == 0 && signBit == 0) || (v == -1 && signBit != 0)) {
+        more = false;
+      } else {
+        byte |= 0x80;
+      }
+      writeUint8(byte);
+    }
+  }
 
   /// {@macro atmos.binaryWriter.scalar.en}
   ///
