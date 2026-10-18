@@ -1,0 +1,27 @@
+name: atmos_filesystem_example
+description: >-
+  Flutter web demo for atmos_filesystem + File System Access pickers
+  (open file, save file, directory).
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_filesystem:
+    path: ../
+  atmos_filesystem_web:
+    path: ../../atmos_filesystem_web
+  atmos_web_files_system_access_api:
+    path: ../../atmos_web_files_system_access_api
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true

@@ -1,0 +1,26 @@
+name: atmos_multithreading_web
+version: 0.1.0
+description: >-
+  Web Worker pool backend for atmos_multithreading by Atom735
+  (request/response jobs across dedicated workers).
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_multithreading_web
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_multithreading: ^0.1.0
+  atmos_web_js_utils: ^0.1.0
+  atmos_web_shared_buffer_api: ^0.1.0
+  atmos_web_worker: ^0.1.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - concurrency
+  - web
+  - workers
+  - parallelism

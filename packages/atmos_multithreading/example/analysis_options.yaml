@@ -1,0 +1,6 @@
+include: package:atmos_lints/full_2.yaml
+
+analyzer:
+  exclude:
+    # Compiled separately via `dart run tool/build_worker.dart`.
+    - worker/**

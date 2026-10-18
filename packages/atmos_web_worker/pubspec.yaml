@@ -1,0 +1,23 @@
+name: atmos_web_worker
+version: 0.1.0
+description: >-
+  Dart bindings for browser Web Workers by Atom735:
+  create workers, postMessage, message/error streams.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_web_worker
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_web_js_utils: ^0.1.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - web
+  - concurrency
+  - workers
+  - parallelism

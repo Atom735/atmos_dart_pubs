@@ -1,0 +1,8 @@
+include: package:atmos_lints/full_2.yaml
+
+analyzer:
+  exclude:
+    - example/**
+    # Browser-only; analyzed under a web compilation context.
+    - lib/src/js_extensions.dart
+    - lib/src/js_utils_web.dart

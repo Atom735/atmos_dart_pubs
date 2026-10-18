@@ -1,0 +1,20 @@
+name: atmos_multithreading
+version: 0.1.0
+description: >-
+  Portable parallel compute API for Dart by Atom735:
+  job pool, local backend, pluggable executors (web workers).
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_multithreading
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - concurrency
+  - parallelism
+  - isolate
+  - compute

@@ -21,6 +21,14 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 | [atmos_vscode_theme](packages/atmos_vscode_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | — |
 | [atmos_vscode_theme_flutter](packages/atmos_vscode_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
+| [atmos_filesystem](packages/atmos_filesystem) | Portable VS Code–like filesystem API (providers, memory) | — |
+| [atmos_filesystem_web](packages/atmos_filesystem_web) | Browser FSA adapter for `atmos_filesystem` | — |
+| [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | File System Access API bindings | — |
+| [atmos_web_js_utils](packages/atmos_web_js_utils) | Browser JS interop helpers (Promise↔Future, …) | — |
+| [atmos_multithreading](packages/atmos_multithreading) | Portable parallel compute API (jobs / local pool) | — |
+| [atmos_multithreading_web](packages/atmos_multithreading_web) | Web Worker pool for `atmos_multithreading` | — |
+| [atmos_web_worker](packages/atmos_web_worker) | Browser Web Worker bindings | — |
+| [atmos_web_shared_buffer_api](packages/atmos_web_shared_buffer_api) | SharedArrayBuffer + Atomics bindings | — |
 
 ## Development
 

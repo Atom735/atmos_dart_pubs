@@ -1,0 +1,33 @@
+name: atmos_multithreading_example
+description: >-
+  Flutter web demo for atmos_multithreading: Dart workers, counters,
+  SharedArrayBuffer/Atomics, parallel CPU jobs.
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_multithreading:
+    path: ../
+  atmos_multithreading_web:
+    path: ../../atmos_multithreading_web
+  atmos_web_js_utils:
+    path: ../../atmos_web_js_utils
+  atmos_web_shared_buffer_api:
+    path: ../../atmos_web_shared_buffer_api
+  atmos_web_worker:
+    path: ../../atmos_web_worker
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+  shelf: ^1.4.0
+  shelf_static: ^1.1.0
+
+flutter:
+  uses-material-design: true
