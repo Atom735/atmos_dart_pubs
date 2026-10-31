@@ -17,6 +17,18 @@ void main() {
       expect(parts[0].key, 'k');
       expect(parts[1].key, 'c');
     });
+
+    test('maps punctuation literals used in dumps', () {
+      expect(VscKeyStrokeParser.parsePart('ctrl+/').key, 'slash');
+      expect(VscKeyStrokeParser.parsePart('ctrl+[').key, 'bracketleft');
+      expect(VscKeyStrokeParser.parsePart('ctrl+]').key, 'bracketright');
+      expect(VscKeyStrokeParser.parsePart('ctrl+-').key, 'minus');
+      expect(VscKeyStrokeParser.parsePart('ctrl+=').key, 'equal');
+      expect(VscKeyStrokeParser.parsePart('ctrl+;').key, 'semicolon');
+      expect(VscKeyStrokeParser.parsePart('ctrl+.').key, 'period');
+      expect(VscKeyStrokeParser.parsePart('ctrl+,').key, 'comma');
+      expect(VscKeyStrokeParser.parsePart(r'ctrl+\').key, 'backslash');
+    });
   });
 
   group('VscWhenEvaluator', () {
@@ -34,6 +46,47 @@ void main() {
       );
       expect(
         VscWhenEvaluator.evaluate('!editorTextFocus', ctx),
+        isFalse,
+      );
+    });
+
+    test('boolean literals and numeric compare', () {
+      expect(VscWhenEvaluator.evaluate('true', {}), isTrue);
+      expect(VscWhenEvaluator.evaluate('false', {}), isFalse);
+      expect(
+        VscWhenEvaluator.evaluate('n > 5', {'n': 3}),
+        isFalse,
+      );
+      expect(
+        VscWhenEvaluator.evaluate('n >= 3', {'n': 3}),
+        isTrue,
+      );
+      expect(
+        VscWhenEvaluator.evaluate('n < 1', {'n': 0}),
+        isTrue,
+      );
+    });
+
+    test('regex =~ /pattern/', () {
+      expect(
+        VscWhenEvaluator.evaluate(
+          r'resource =~ /foo\/bar/i',
+          {'resource': 'Foo/Bar'},
+        ),
+        isTrue,
+      );
+      expect(
+        VscWhenEvaluator.evaluate(
+          "name =~ 'sub'",
+          {'name': 'substring'},
+        ),
+        isTrue,
+      );
+    });
+
+    test('unknown trailing ops fail closed', () {
+      expect(
+        VscWhenEvaluator.evaluate('n ??? 1', {'n': 1}),
         isFalse,
       );
     });
@@ -129,6 +182,41 @@ void main() {
         isNull,
       );
     });
+
+    test('replaceBindings and bindingsForCommand', () {
+      final engine = VscKeybindingEngine(
+        bindings: const [
+          VscKeybinding(key: 'ctrl+s', command: 'save.v1'),
+        ],
+      );
+      expect(engine.bindingsForCommand('save.v1'), hasLength(1));
+
+      engine.replaceBindings(const [
+        VscKeybinding(key: 'ctrl+s', command: 'save.v2'),
+      ]);
+      expect(
+        engine
+            .handleKey(const VscKeyStroke(key: 's', control: true))
+            ?.commandId,
+        'save.v2',
+      );
+      expect(engine.bindingsForCommand('save.v1'), isEmpty);
+    });
+
+    test('indexes punctuation dump keys without skip', () {
+      final engine = VscKeybindingEngine(
+        bindings: const [
+          VscKeybinding(key: 'ctrl+/', command: 'editor.action.commentLine'),
+        ],
+      );
+      expect(engine.skippedBindings, isEmpty);
+      expect(
+        engine
+            .handleKey(const VscKeyStroke(key: 'slash', control: true))
+            ?.commandId,
+        'editor.action.commentLine',
+      );
+    });
   });
 
   group('bundled assets', () {
@@ -140,6 +228,25 @@ void main() {
       expect(bindings.length, greaterThan(500));
       expect(
         bindings.any((b) => b.command.contains('workbench.action')),
+        isTrue,
+      );
+
+      final engine = VscKeybindingEngine(
+        bindings: bindings,
+        platform: VscKeyPlatform.windows,
+      );
+      // Punctuation aliases should keep skipped near zero for stock dumps.
+      expect(engine.skippedBindings.length, lessThan(20));
+    });
+
+    test('loads windows negative dump', () {
+      final bindings = VscKeybindingsLoader.loadBundled(
+        VscBundledKeybindings.windowsNegative,
+        packageRoot: '.',
+      );
+      expect(bindings.length, greaterThan(500));
+      expect(
+        bindings.every((b) => b.isRemoval || b.command.startsWith('-')),
         isTrue,
       );
     });

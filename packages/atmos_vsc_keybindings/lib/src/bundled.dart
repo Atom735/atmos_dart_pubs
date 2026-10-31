@@ -36,18 +36,46 @@ abstract final class VscBundledKeybindings {
   /// Linux defaults.
   static const linux = VscBundledKeybindingSet(VscKeyPlatform.linux);
 
-  /// All OS dumps.
+  /// Windows negative dump (unbind OS defaults).
+  static const windowsNegative = VscBundledKeybindingSet(
+    VscKeyPlatform.windows,
+    negative: true,
+  );
+
+  /// macOS negative dump.
+  static const macosNegative = VscBundledKeybindingSet(
+    VscKeyPlatform.macos,
+    negative: true,
+  );
+
+  /// Linux negative dump.
+  static const linuxNegative = VscBundledKeybindingSet(
+    VscKeyPlatform.linux,
+    negative: true,
+  );
+
+  /// All OS default dumps.
   static const all = <VscBundledKeybindingSet>[windows, macos, linux];
 
+  /// All OS negative dumps.
+  static const allNegative = <VscBundledKeybindingSet>[
+    windowsNegative,
+    macosNegative,
+    linuxNegative,
+  ];
+
   /// Dump for [platform].
-  static VscBundledKeybindingSet forPlatform(VscKeyPlatform platform) {
+  static VscBundledKeybindingSet forPlatform(
+    VscKeyPlatform platform, {
+    bool negative = false,
+  }) {
     switch (platform) {
       case VscKeyPlatform.windows:
-        return windows;
+        return negative ? windowsNegative : windows;
       case VscKeyPlatform.macos:
-        return macos;
+        return negative ? macosNegative : macos;
       case VscKeyPlatform.linux:
-        return linux;
+        return negative ? linuxNegative : linux;
     }
   }
 }
@@ -55,13 +83,20 @@ abstract final class VscBundledKeybindings {
 /// One bundled OS keybinding dump.
 class VscBundledKeybindingSet {
   /// Creates a reference to a bundled dump.
-  const VscBundledKeybindingSet(this.platform);
+  const VscBundledKeybindingSet(
+    this.platform, {
+    this.negative = false,
+  });
 
   /// OS of this dump.
   final VscKeyPlatform platform;
 
+  /// Whether this is a `*.negative.keybindings.json` unbind dump.
+  final bool negative;
+
   /// File name (`windows.keybindings.json`).
-  String get fileName => platform.fileName;
+  String get fileName =>
+      negative ? platform.negativeFileName : platform.fileName;
 
   /// Path relative to `lib/`
   /// (`assets/vs-code-default-keybindings/windows.keybindings.json`).

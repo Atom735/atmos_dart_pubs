@@ -7,8 +7,9 @@ Pure-Dart **VS Code / Cursor** default keybindings + hotkey engine by
   [`lib/assets/vs-code-default-keybindings`](lib/assets/vs-code-default-keybindings)
   from
   [vs-code-default-keybindings](https://github.com/codebling/vs-code-default-keybindings)
-  (VS Code **1.144.0**)
+  (VS Code **1.144.0**, including `*.negative.*`)
 - Chord-aware engine with `when`-clauses and default + user layers
+- Punctuation keys (`ctrl+/`), `=~ /regex/`, `replaceBindings` / diagnostics
 - Owns `VscKeybinding` (commands package depends on this, not the reverse)
 - No Flutter dependency — see
   [`atmos_vsc_keybindings_flutter`](../atmos_vsc_keybindings_flutter) for assets

@@ -109,6 +109,18 @@ abstract final class VscKeyStrokeParser {
     'right': 'right',
     'pageup': 'pageup',
     'pagedown': 'pagedown',
+    // Dump files often use punctuation literals (`ctrl+/`) instead of names.
+    '/': 'slash',
+    r'\': 'backslash',
+    '[': 'bracketleft',
+    ']': 'bracketright',
+    '-': 'minus',
+    '=': 'equal',
+    ';': 'semicolon',
+    '.': 'period',
+    ',': 'comma',
+    "'": 'quote',
+    '`': 'backquote',
   };
 
   static const Set<String> _known = {

@@ -25,6 +25,9 @@ flutter:
     - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/windows.keybindings.json
     - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/macos.keybindings.json
     - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/linux.keybindings.json
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/windows.negative.keybindings.json
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/macos.negative.keybindings.json
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/linux.negative.keybindings.json
 
 
 topics:

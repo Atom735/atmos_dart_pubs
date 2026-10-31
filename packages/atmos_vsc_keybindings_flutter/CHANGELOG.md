@@ -1,15 +1,17 @@
 # Changelog
 
-## 0.1.0
+## 0.0.1-alpha
 
 ### EN
 
-- Load bundled OS keybinding JSON via `AssetBundle`
+- Load bundled OS / negative keybinding JSON via `AssetBundle`
 - Map Flutter key events ↔ `VscKeyStroke`
-- `VscKeybindingsHost` widget for chord-aware dispatch
+- `VscKeybindingsHost`: chord-aware dispatch, skip printable when
+  `EditableText` owns focus, ignore key repeats
 
 ### RU
 
-- Загрузка бандла keybindings через `AssetBundle`
+- Загрузка бандла / negative keybindings через `AssetBundle`
 - Мост Flutter key events ↔ `VscKeyStroke`
-- Виджет `VscKeybindingsHost` с поддержкой аккордов
+- `VscKeybindingsHost`: аккорды, не перехватывать печать в `EditableText`,
+  игнор key repeat

@@ -27,9 +27,28 @@ void main() {
     expect(a.shift, isTrue);
   });
 
+  test('fromKeyEvent maps slash', () {
+    final stroke = VscFlutterKeyBridge.fromKeyEvent(
+      logicalKey: LogicalKeyboardKey.slash,
+      pressed: {
+        LogicalKeyboardKey.controlLeft,
+        LogicalKeyboardKey.slash,
+      },
+    );
+    expect(stroke?.key, 'slash');
+    expect(stroke?.control, isTrue);
+  });
+
   test('loads windows asset', () async {
     final bindings = await VscKeybindingsAssetLoader.loadPlatform(
       VscKeyPlatform.windows,
+    );
+    expect(bindings.length, greaterThan(500));
+  }, timeout: const Timeout(Duration(seconds: 30)),);
+
+  test('loads windows negative asset', () async {
+    final bindings = await VscKeybindingsAssetLoader.load(
+      VscBundledKeybindings.windowsNegative,
     );
     expect(bindings.length, greaterThan(500));
   }, timeout: const Timeout(Duration(seconds: 30)),);

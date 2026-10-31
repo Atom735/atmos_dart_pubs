@@ -3,9 +3,9 @@
 Flutter layer for [`atmos_vsc_keybindings`](../atmos_vsc_keybindings) by
 [Atom735](https://github.com/Atom735).
 
-- Load bundled OS dumps via `AssetBundle`
+- Load bundled OS / negative dumps via `AssetBundle`
 - Map `LogicalKeyboardKey` ↔ `VscKeyStroke`
-- `VscKeybindingsHost` — chord-aware focus host (no Material)
+- `VscKeybindingsHost` — chords, skip printable in `EditableText`, no Material
 
 ## Install
 

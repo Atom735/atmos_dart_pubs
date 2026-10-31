@@ -23,6 +23,21 @@ class VscKeyMatch {
   final Object? args;
 }
 
+/// A binding that could not be indexed (usually an unparsable key string).
+class VscSkippedBinding {
+  /// Creates a skip record.
+  const VscSkippedBinding({
+    required this.binding,
+    required this.reason,
+  });
+
+  /// Source rule.
+  final VscKeybinding binding;
+
+  /// Why it was skipped.
+  final String reason;
+}
+
 /// Pure-Dart VS Code-style hotkey resolver (chords + when + layers).
 ///
 /// ## ENG
@@ -68,8 +83,9 @@ class VscKeybindingEngine {
     );
   }
 
-  final List<VscKeybinding> _bindings;
+  List<VscKeybinding> _bindings;
   final DateTime Function() _clock;
+  List<VscSkippedBinding> _skipped = const [];
 
   /// Active when-clause context (mutable).
   final Map<String, Object?> context;
@@ -89,6 +105,9 @@ class VscKeybindingEngine {
   /// Resolved rules in engine order (defaults…user).
   List<VscKeybinding> get bindings => _bindings;
 
+  /// Bindings skipped while building the index (unparsable keys, etc.).
+  List<VscSkippedBinding> get skippedBindings => _skipped;
+
   /// Whether a multi-step chord is awaiting the next key.
   bool get inChord => _chordPrefix != null;
 
@@ -100,6 +119,34 @@ class VscKeybindingEngine {
   void cancelChord() {
     _chordPrefix = null;
     _chordStartedAt = null;
+  }
+
+  /// Replaces the active binding list and rebuilds the index.
+  void replaceBindings(List<VscKeybinding> bindings) {
+    _bindings = List<VscKeybinding>.unmodifiable(bindings);
+    cancelChord();
+    _rebuildIndex();
+  }
+
+  /// Merges [defaults] + [user] into this engine (keeps [context]).
+  void applyUser(
+    List<VscKeybinding> defaults, {
+    List<VscKeybinding> user = const [],
+  }) {
+    replaceBindings(mergeBindings(defaults, user, platform: platform));
+  }
+
+  /// Rules whose [VscKeybinding.commandId] equals [commandId].
+  List<VscKeybinding> bindingsForCommand(String commandId) {
+    return _bindings
+        .where((b) => !b.isRemoval && b.commandId == commandId)
+        .toList(growable: false);
+  }
+
+  /// Resolves [strokes] against the index without mutating chord state.
+  VscKeyMatch? resolve(List<VscKeyStroke> strokes) {
+    if (strokes.isEmpty) return null;
+    return _lookup(strokes);
   }
 
   /// Merges [defaults] with [user] (removals applied).
@@ -191,13 +238,17 @@ class VscKeybindingEngine {
 
   void _rebuildIndex() {
     final map = <String, List<_IndexedBinding>>{};
+    final skipped = <VscSkippedBinding>[];
     for (final binding in _bindings) {
       if (binding.isRemoval || binding.command.isEmpty) continue;
       final keyStr = binding.keyForPlatform(platform.id);
       List<VscKeyStroke> strokes;
       try {
         strokes = VscKeyStrokeParser.parse(keyStr);
-      } on FormatException {
+      } on FormatException catch (e) {
+        skipped.add(
+          VscSkippedBinding(binding: binding, reason: e.message),
+        );
         continue;
       }
       final first = strokes.first.toKeyString();
@@ -206,6 +257,7 @@ class VscKeybindingEngine {
           );
     }
     _byFirstStroke = map;
+    _skipped = List<VscSkippedBinding>.unmodifiable(skipped);
   }
 
   static bool _strokesEqual(List<VscKeyStroke> a, List<VscKeyStroke> b) {

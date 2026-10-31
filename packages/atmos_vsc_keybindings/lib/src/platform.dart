@@ -24,6 +24,19 @@ extension VscKeyPlatformX on VscKeyPlatform {
     }
   }
 
+  /// Negative dump that clears OS defaults
+  /// (`windows.negative.keybindings.json`).
+  String get negativeFileName {
+    switch (this) {
+      case VscKeyPlatform.windows:
+        return 'windows.negative.keybindings.json';
+      case VscKeyPlatform.macos:
+        return 'macos.negative.keybindings.json';
+      case VscKeyPlatform.linux:
+        return 'linux.negative.keybindings.json';
+    }
+  }
+
   /// Short id used by `VscKeybinding.keyForPlatform`.
   String get id {
     switch (this) {

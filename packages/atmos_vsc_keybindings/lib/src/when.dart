@@ -1,12 +1,13 @@
 /// Evaluates VS Code-style `when` clauses against a context map.
 ///
 /// ## ENG
-/// Supports `&&`, `||`, `!`, parentheses, identifiers, and
-/// `key == 'value'` / `!=` / `=~` (substring). Unknown syntax fails closed
+/// Supports `&&`, `||`, `!`, parentheses, identifiers, boolean literals,
+/// `==` / `!=`, numeric `>` / `>=` / `<` / `<=`, and `=~` with `/regex/`
+/// (or substring for quoted patterns). Unknown / trailing syntax fails closed
 /// (`false`) unless `strict` is true (then throws).
 ///
 /// ## RU
-/// Поддержка `&&`, `||`, `!`, скобок, идентификаторов и сравнений.
+/// `&&` / `||` / `!` / скобки, литералы, сравнения и `=~ /regex/`.
 /// Неизвестный синтаксис → `false`, либо throw при `strict`.
 abstract final class VscWhenEvaluator {
   /// Whether [clause] is satisfied by [context].
@@ -22,7 +23,7 @@ abstract final class VscWhenEvaluator {
       final parser = _WhenParser(clause, context);
       final value = parser.parseExpression();
       parser.skipWs();
-      if (!parser.done && strict) {
+      if (!parser.done) {
         throw FormatException('Trailing input in when: "$clause"');
       }
       return value;
@@ -94,27 +95,138 @@ class _WhenParser {
 
   bool parsePrimary() {
     skipWs();
+    if (_matchKeyword('true')) return true;
+    if (_matchKeyword('false')) return false;
+
     final key = _readIdentifier();
     if (key == null) {
       throw const FormatException('Expected context key');
     }
     skipWs();
+
     if (_match('==')) {
       skipWs();
-      final expected = _readStringOrIdent();
-      return _stringify(context[key]) == expected;
+      return _stringify(context[key]) == _readStringOrIdent();
     }
     if (_match('!=')) {
       skipWs();
-      final expected = _readStringOrIdent();
-      return _stringify(context[key]) != expected;
+      return _stringify(context[key]) != _readStringOrIdent();
     }
     if (_match('=~')) {
       skipWs();
-      final pattern = _readStringOrIdent();
-      return _stringify(context[key]).contains(pattern);
+      return _matchPattern(context[key]);
     }
+    if (_match('>=')) {
+      return _compareNum(context[key], _readNumberOperand(), (a, b) => a >= b);
+    }
+    if (_match('<=')) {
+      return _compareNum(context[key], _readNumberOperand(), (a, b) => a <= b);
+    }
+    if (_match('>')) {
+      return _compareNum(context[key], _readNumberOperand(), (a, b) => a > b);
+    }
+    if (_match('<')) {
+      return _compareNum(context[key], _readNumberOperand(), (a, b) => a < b);
+    }
+
     return _truthy(context[key]);
+  }
+
+  bool _matchPattern(Object? value) {
+    final text = _stringify(value);
+    skipWs();
+    if (!done && source[_i] == '/') {
+      final re = _readRegex();
+      return re.hasMatch(text);
+    }
+    final pattern = _readStringOrIdent();
+    return text.contains(pattern);
+  }
+
+  RegExp _readRegex() {
+    if (done || source[_i] != '/') {
+      throw const FormatException('Expected /regex/');
+    }
+    _i++;
+    final buf = StringBuffer();
+    while (!done) {
+      final c = source[_i];
+      if (c == '/') break;
+      if (c == r'\' && _i + 1 < source.length) {
+        buf.write(source[_i + 1]);
+        _i += 2;
+        continue;
+      }
+      buf.write(c);
+      _i++;
+    }
+    if (done || source[_i] != '/') {
+      throw const FormatException('Unclosed /regex/');
+    }
+    _i++;
+    var caseSensitive = true;
+    var multiLine = false;
+    var dotAll = false;
+    while (!done) {
+      final f = source[_i];
+      if (f == 'i') {
+        caseSensitive = false;
+      } else if (f == 'm') {
+        multiLine = true;
+      } else if (f == 's') {
+        dotAll = true;
+      } else if (f == 'g' || f == 'u') {
+        // JS flags with no Dart equivalent — ignore.
+      } else {
+        break;
+      }
+      _i++;
+    }
+    return RegExp(
+      buf.toString(),
+      caseSensitive: caseSensitive,
+      multiLine: multiLine,
+      dotAll: dotAll,
+    );
+  }
+
+  num _readNumberOperand() {
+    skipWs();
+    final start = _i;
+    if (!done && (source[_i] == '+' || source[_i] == '-')) {
+      _i++;
+    }
+    while (!done && _isDigit(source.codeUnitAt(_i))) {
+      _i++;
+    }
+    if (!done && source[_i] == '.') {
+      _i++;
+      while (!done && _isDigit(source.codeUnitAt(_i))) {
+        _i++;
+      }
+    }
+    if (_i == start ||
+        (_i == start + 1 &&
+            (source[start] == '+' || source[start] == '-'))) {
+      throw const FormatException('Expected number');
+    }
+    return num.parse(source.substring(start, _i));
+  }
+
+  bool _compareNum(
+    Object? left,
+    num right,
+    bool Function(num a, num b) op,
+  ) {
+    final a = _asNum(left);
+    if (a == null) return false;
+    return op(a, right);
+  }
+
+  static num? _asNum(Object? v) {
+    if (v is num) return v;
+    if (v is String) return num.tryParse(v);
+    return null;
   }
 
   String? _readIdentifier() {
@@ -143,6 +255,8 @@ class _WhenParser {
       if (!done) _i++;
       return value;
     }
+    if (_matchKeyword('true')) return 'true';
+    if (_matchKeyword('false')) return 'false';
     final id = _readIdentifier();
     if (id == null) {
       throw const FormatException('Expected string or identifier');
@@ -159,6 +273,17 @@ class _WhenParser {
     return false;
   }
 
+  bool _matchKeyword(String word) {
+    skipWs();
+    if (!source.startsWith(word, _i)) return false;
+    final end = _i + word.length;
+    if (end < source.length && _isIdentPart(source.codeUnitAt(end))) {
+      return false;
+    }
+    _i = end;
+    return true;
+  }
+
   static bool _truthy(Object? v) {
     if (v == null) return false;
     if (v is bool) return v;
@@ -170,6 +295,8 @@ class _WhenParser {
   static String _stringify(Object? v) => v?.toString() ?? '';
 
   static bool _isWs(int c) => c == 0x20 || c == 0x09 || c == 0x0a || c == 0x0d;
+
+  static bool _isDigit(int c) => c >= 0x30 && c <= 0x39;
 
   static bool _isIdentStart(int c) =>
       (c >= 0x41 && c <= 0x5a) ||
