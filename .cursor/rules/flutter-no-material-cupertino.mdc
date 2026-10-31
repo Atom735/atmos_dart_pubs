@@ -1,0 +1,41 @@
+---
+description: Do not use Flutter Material or Cupertino; prefer widgets + custom UI
+globs: packages/**/*.dart
+alwaysApply: false
+---
+
+# No Material / Cupertino
+
+Flutter UI in this monorepo must not depend on Material or Cupertino design APIs.
+
+## Do not
+
+- Import `package:flutter/material.dart` or `package:flutter/cupertino.dart`
+- Use Material/Cupertino widgets or helpers (`Material`, `Scaffold`, `AppBar`, `InkWell`, `IconButton`, `Theme`, `ThemeData`, `CupertinoButton`, …)
+- Pull in Material icons / typography as the visual system for product UI
+
+## Do
+
+- Import `package:flutter/widgets.dart` (plus `painting`, `rendering`, `services`, `scheduler` only as needed)
+- Build look and interaction with primitives: `Container`, `ColoredBox`, `GestureDetector`, `MouseRegion`, `CustomPaint`, `Text`, `RichText`, etc.
+- Keep colors, metrics, and typography in package-local theme types (e.g. `VscUiTheme`), not `Theme.of(context)`
+
+```dart
+// ❌ BAD
+import 'package:flutter/material.dart';
+
+IconButton(icon: Icon(Icons.search), onPressed: onTap);
+
+// ✅ GOOD
+import 'package:flutter/widgets.dart';
+
+GestureDetector(
+  onTap: onTap,
+  child: mouseRegionWithTooltip(/* custom icon widget */),
+);
+```
+
+## Exceptions
+
+- **Theme bridge packages** whose public purpose is mapping into Flutter `ThemeData` / `Color` (e.g. `atmos_vsc_theme_flutter`) may import `material.dart` only for that bridge API — not for building widgets.
+- Do not expand Material usage elsewhere “for convenience” because an exception package already imports it.

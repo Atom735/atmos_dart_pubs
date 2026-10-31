@@ -23,9 +23,18 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_vscode_theme_flutter](packages/atmos_vscode_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Bundled VS Code default keybindings + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
+| [atmos_vsc_l10n](packages/atmos_vsc_l10n) | VS Code-style NLS / l10n (`%keys%`, `package.nls`, `t()`) | — |
+| [atmos_vsc_l10n_flutter](packages/atmos_vsc_l10n_flutter) | AssetBundle loaders + `VscL10nScope` | — |
+| [atmos_vsc_commands](packages/atmos_vsc_commands) | Command hub (registry / execute) + contribution JSONC | — |
+| [atmos_vsc_commands_flutter](packages/atmos_vsc_commands_flutter) | `VscCommandHost` — keybindings → command service | — |
+
 | [atmos_filesystem](packages/atmos_filesystem) | Portable VS Code–like filesystem API (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Browser FSA adapter for `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | File System Access API bindings | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
+| [atmos_local_fonts](packages/atmos_local_fonts) | Portable local-font model (faces, source) | — |
+| [atmos_local_fonts_web](packages/atmos_local_fonts_web) | Browser local-font source (Local Font Access API) | — |
+| [atmos_local_fonts_flutter](packages/atmos_local_fonts_flutter) | Register local font files with Flutter | — |
+| [atmos_web_local_font_access_api](packages/atmos_web_local_font_access_api) | Local Font Access API bindings | — |
 | [atmos_web_js_utils](packages/atmos_web_js_utils) | Browser JS interop helpers (Promise↔Future, …) | [pub.dev](https://pub.dev/packages/atmos_web_js_utils) |
 | [atmos_multithreading](packages/atmos_multithreading) | Portable parallel compute API (jobs / local pool) | [pub.dev](https://pub.dev/packages/atmos_multithreading) |
 | [atmos_multithreading_web](packages/atmos_multithreading_web) | Web Worker pool for `atmos_multithreading` | [pub.dev](https://pub.dev/packages/atmos_multithreading_web) |

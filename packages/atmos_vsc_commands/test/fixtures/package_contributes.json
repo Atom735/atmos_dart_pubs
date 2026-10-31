@@ -1,0 +1,34 @@
+{
+  "name": "demo",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Say Hello",
+        "category": "Demo",
+        "enablement": "editorTextFocus",
+        "icon": "$(book)"
+      },
+      {
+        "command": "extension.localized",
+        "title": {
+          "value": "Привет",
+          "original": "Hello"
+        },
+        "shortTitle": "Hi",
+        "icon": {
+          "light": "icons/light.svg",
+          "dark": "icons/dark.svg"
+        }
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.sayHello",
+        "key": "ctrl+f1",
+        "mac": "cmd+f1",
+        "when": "editorTextFocus"
+      }
+    ]
+  }
+}

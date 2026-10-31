@@ -13,28 +13,56 @@ alwaysApply: false
 - Keep DartDoc useful for public members; for bilingual docs prefer EN first, then RU
 - Shared docs: use `{@template}` / `{@macro}` as in `atmos_binary_buffer` (see rule `dartdoc-templates`)
 - Do not add app-only or secret config into a publishable package
+- `analysis_options.yaml` must be:
+  `include: package:atmos_lints/full_2.yaml`
+  (add `atmos_lints` under `dev_dependencies`; examples too)
+
+## New package scaffold
+
+When creating a package, ship `analysis_options.yaml` with only:
+
+```yaml
+include: package:atmos_lints/full_2.yaml
+```
 
 ## Versioning and changelog
 
 - Follow semver: fix → patch, feature → minor, breaking → major
-- Update `CHANGELOG.md` in the same change as the version bump
-- Changelog style: version heading + short bullets; bilingual EN/RU sections when the package already uses them
+- Update **both** `CHANGELOG.md` (EN) and `CHANGELOG_RU.md` (RU) in the same change as the version bump
+- Same version headings and equivalent bullets; one language per file (no `### EN` / `### RU` inside)
+- Cross-link at the top (`Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).` / `English: [CHANGELOG.md](CHANGELOG.md).`)
 
 ```markdown
+# Changelog
+
+Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
+
 ## x.y.z
 
-### EN
 - describe user-visible change
-
-### RU
-- описание изменения
 ```
+
+```markdown
+# Changelog
+
+English: [CHANGELOG.md](CHANGELOG.md).
+
+## x.y.z
+
+- описание изменения для пользователя
+```
+
+## README (EN + RU)
+
+- Maintain **both** `README.md` (EN) and `README_RU.md` (RU); update together with user-visible API/docs changes
+- Cross-link at the top of each file (`Русский: …` / `English: …`)
+- Same sections and install/version snippets; translate prose, keep code samples aligned
 
 ## Before suggesting publish
 
 1. `dart pub get` (or Melos bootstrap) in the package
 2. `dart analyze` (and tests if present)
-3. Confirm `version`, `CHANGELOG.md`, `README.md` install snippet match
+3. Confirm `version`, `CHANGELOG.md` / `CHANGELOG_RU.md`, `README.md` / `README_RU.md` snippets match
 4. Publish only from the package directory (`packages/<name>`), never from the monorepo root (`publish_to: none`)
 5. Never publish with `--force` unless the user explicitly asks for publish/release
 

@@ -1,0 +1,27 @@
+name: atmos_vsc_l10n_flutter
+version: 0.0.1-alpha
+description: >-
+  Flutter bindings for atmos_vsc_l10n — AssetBundle NLS/l10n loaders and
+  InheritedWidget scope by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_l10n_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_l10n: ^0.0.1-alpha
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - l10n
+  - i18n
+  - flutter
+  - vscode

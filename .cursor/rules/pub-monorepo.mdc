@@ -22,10 +22,25 @@ This repo (`atmos_dart_pubs`) hosts independently published Dart/Flutter package
 ## Editing packages
 
 - Prefer small, reviewable diffs; do not rewrite unrelated packages
-- Keep each package publishable on its own (own `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `README.md`)
+- Keep each package publishable on its own (own `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `CHANGELOG_RU.md`, `README.md`, `README_RU.md`)
 - Public API changes need docs + changelog; avoid silent breaking changes
-- Prefer `atmos_lints` for analysis where the package already uses it
+- Analysis: every package (and package `example/`) uses
+  `include: package:atmos_lints/full_2.yaml` in `analysis_options.yaml`
+  (`atmos_lints` itself may use `include: lib/full_2.yaml`)
 - Cross-package WIP: use Melos path overrides locally; published versions must use version constraints, not `path:`
+
+## Docs EN + RU (README + CHANGELOG)
+
+- Every package under `packages/` must have:
+  - `README.md` (English) + `README_RU.md` (Russian)
+  - `CHANGELOG.md` (English) + `CHANGELOG_RU.md` (Russian)
+- Keep pairs in sync when changing install snippets, features, versions, or user-visible notes
+- Cross-link at the top of each file:
+  - EN → `Русский: [README_RU.md](README_RU.md).` / `Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).`
+  - RU → `English: [README.md](README.md).` / `English: [CHANGELOG.md](CHANGELOG.md).`
+- README: same structure (Install / Quick start / License); code samples may match; prose in the file’s language
+- CHANGELOG: same version headings and bullet coverage; **do not** put `### EN` / `### RU` in one file — split by file instead
+- Legacy single-file bilingual changelogs: when touching a package, prefer splitting into `CHANGELOG.md` + `CHANGELOG_RU.md`
 
 ## Metadata (required in each package `pubspec.yaml`)
 
@@ -45,7 +60,7 @@ issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
 
 ## When creating a new package
 
-1. Scaffold under `packages/<name>/` with `lib/`, `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `README.md`
+1. Scaffold under `packages/<name>/` with `lib/`, `pubspec.yaml`, `LICENSE`, `CHANGELOG.md`, `CHANGELOG_RU.md`, `README.md`, `README_RU.md`
 2. Point `repository` / `issue_tracker` at this monorepo
 3. Add a row to the root `README.md` packages table
 4. Run `dart run melos bootstrap`

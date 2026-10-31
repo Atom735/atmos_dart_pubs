@@ -1,0 +1,28 @@
+name: atmos_vsc_commands_flutter
+version: 0.0.1-alpha
+description: >-
+  Flutter command host and shortcut helpers for atmos_vsc_commands (wires
+  keybindings engine to VscCommandService) by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_commands_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_commands: ^0.0.1-alpha
+  atmos_vsc_keybindings_flutter: ^0.0.1-alpha
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - commands
+  - keybindings
+  - flutter
+  - vscode

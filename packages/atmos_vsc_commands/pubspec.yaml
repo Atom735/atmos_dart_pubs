@@ -1,0 +1,25 @@
+name: atmos_vsc_commands
+version: 0.0.1-alpha
+description: >-
+  VS Code / Cursor command hub (registry, execute, enablement) and JSONC
+  contribution parsing; keybindings via atmos_vsc_keybindings by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_commands
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_jsonc: ^0.1.0
+  atmos_vsc_keybindings: ^0.0.1-alpha
+  atmos_vsc_l10n: ^0.0.1-alpha
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - commands
+  - keybindings
+  - editor
+  - vscode

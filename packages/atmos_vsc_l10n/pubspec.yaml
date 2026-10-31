@@ -1,0 +1,22 @@
+name: atmos_vsc_l10n
+version: 0.0.1-alpha
+description: >-
+  VS Code / Cursor style localization (package.nls, %keys%, l10n.t) by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_l10n
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_jsonc: ^0.1.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - l10n
+  - i18n
+  - nls
+  - vscode

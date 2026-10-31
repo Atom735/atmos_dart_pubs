@@ -1,0 +1,23 @@
+[
+  // Editor focus
+  {
+    "key": "home",
+    "command": "cursorHome",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+c",
+    "command": "editor.action.addCommentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "tab",
+    "command": "-jumpToNextSnippetPlaceholder"
+  },
+  {
+    "key": "enter",
+    "command": "type",
+    "args": { "text": "Hello" },
+    "when": "editorTextFocus",
+  },
+]
