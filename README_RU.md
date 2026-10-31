@@ -21,8 +21,8 @@ packages/
 | [atmos_jsonc](packages/atmos_jsonc) | Потоковый JSONC-декодер (комментарии, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Общие пресеты analyzer/linter (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Композируемый логгер (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
-| [atmos_vscode_theme](packages/atmos_vscode_theme) | Парсинг цветовых тем VS Code / Cursor (JSONC, `include`) | — |
-| [atmos_vscode_theme_flutter](packages/atmos_vscode_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | — |
+| [atmos_vsc_theme](packages/atmos_vsc_theme) | Парсинг цветовых тем VS Code / Cursor (JSONC, `include`) | — |
+| [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Бандл дефолтных keybindings VS Code + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
 | [atmos_vsc_l10n](packages/atmos_vsc_l10n) | NLS / l10n в стиле VS Code (`%keys%`, `package.nls`, `t()`) | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n) |

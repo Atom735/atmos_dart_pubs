@@ -1,0 +1,54 @@
+name: atmos_vsc_theme_flutter
+version: 0.3.0
+description: >-
+  Map VS Code / Cursor color themes (via atmos_vsc_theme) to Flutter
+  ColorScheme / ThemeData, AssetBundle loading, and context.vscTheme by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_theme_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_theme: ^0.3.1
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - theme
+  - flutter
+  - material
+  - vscode
+
+flutter:
+  assets:
+    - packages/atmos_vsc_theme/themes/abyss/abyss-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-hc-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-midnight-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-light-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-light-colorblind-color-theme.json
+    - packages/atmos_vsc_theme/themes/defaults/2026-dark.json
+    - packages/atmos_vsc_theme/themes/defaults/2026-light.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_modern.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_plus.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_vs.json
+    - packages/atmos_vsc_theme/themes/defaults/hc_black.json
+    - packages/atmos_vsc_theme/themes/defaults/hc_light.json
+    - packages/atmos_vsc_theme/themes/defaults/light_modern.json
+    - packages/atmos_vsc_theme/themes/defaults/light_plus.json
+    - packages/atmos_vsc_theme/themes/defaults/light_vs.json
+    - packages/atmos_vsc_theme/themes/kimbie-dark/kimbie-dark-color-theme.json
+    - packages/atmos_vsc_theme/themes/monokai/monokai-color-theme.json
+    - packages/atmos_vsc_theme/themes/monokai-dimmed/dimmed-monokai-color-theme.json
+    - packages/atmos_vsc_theme/themes/quietlight/quietlight-color-theme.json
+    - packages/atmos_vsc_theme/themes/red/Red-color-theme.json
+    - packages/atmos_vsc_theme/themes/solarized-dark/solarized-dark-color-theme.json
+    - packages/atmos_vsc_theme/themes/solarized-light/solarized-light-color-theme.json
+    - packages/atmos_vsc_theme/themes/tomorrow-night-blue/tomorrow-night-blue-color-theme.json
