@@ -23,6 +23,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
+| [atmos_vsc_ui](packages/atmos_vsc_ui) | VS Code-like workbench widgets (no Material / Cupertino) | — |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Bundled VS Code default keybindings + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
 | [atmos_vsc_l10n](packages/atmos_vsc_l10n) | VS Code-style NLS / l10n (`%keys%`, `package.nls`, `t()`) | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n) |

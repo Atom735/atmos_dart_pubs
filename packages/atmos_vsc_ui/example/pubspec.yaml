@@ -1,0 +1,40 @@
+name: atmos_vsc_ui_example
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_l10n_flutter: ^0.0.1-alpha
+  atmos_vsc_ui:
+    path: ../
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - assets/l10n/bundle.l10n.json
+    - assets/l10n/bundle.l10n.ru.json
+    - assets/l10n/package.nls.json
+    - assets/l10n/package.nls.ru.json
+    - packages/atmos_vsc_theme/themes/defaults/2026-dark.json
+    - packages/atmos_vsc_theme/themes/defaults/2026-light.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_modern.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_plus.json
+    - packages/atmos_vsc_theme/themes/defaults/dark_vs.json
+    - packages/atmos_vsc_theme/themes/defaults/hc_black.json
+    - packages/atmos_vsc_theme/themes/defaults/hc_light.json
+    - packages/atmos_vsc_theme/themes/defaults/light_modern.json
+    - packages/atmos_vsc_theme/themes/defaults/light_plus.json
+    - packages/atmos_vsc_theme/themes/defaults/light_vs.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-hc-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-dark-midnight-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-light-color-theme.json
+    - packages/atmos_vsc_theme/themes/cursor/cursor-light-colorblind-color-theme.json

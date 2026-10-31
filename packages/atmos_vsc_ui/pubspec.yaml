@@ -1,0 +1,31 @@
+name: atmos_vsc_ui
+version: 0.3.0-alpha
+description: >-
+  Flutter workbench UI (VS Code / Cursor-like) without Material or Cupertino —
+  shell, menus, panel, tree, and form controls by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_ui
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_codicon_flutter: ^0.0.1-alpha
+  atmos_vsc_commands: ^0.0.1-alpha
+  atmos_vsc_commands_flutter: ^0.0.1-alpha
+  atmos_vsc_theme: ^0.3.1
+  atmos_vsc_theme_flutter: ^0.3.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - ui
+  - editor
+  - flutter
+  - vscode
