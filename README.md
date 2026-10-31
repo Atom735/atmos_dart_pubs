@@ -21,7 +21,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_jsonc](packages/atmos_jsonc) | Streaming JSONC decoder (comments, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
-| [atmos_vsc_theme](packages/atmos_vsc_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | — |
+| [atmos_vsc_theme](packages/atmos_vsc_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Bundled VS Code default keybindings + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
