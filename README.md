@@ -31,10 +31,10 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_filesystem](packages/atmos_filesystem) | Portable VS Code–like filesystem API (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Browser FSA adapter for `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | File System Access API bindings | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
-| [atmos_local_fonts](packages/atmos_local_fonts) | Portable local-font model (faces, source) | — |
-| [atmos_local_fonts_web](packages/atmos_local_fonts_web) | Browser local-font source (Local Font Access API) | — |
-| [atmos_local_fonts_flutter](packages/atmos_local_fonts_flutter) | Register local font files with Flutter | — |
-| [atmos_web_local_font_access_api](packages/atmos_web_local_font_access_api) | Local Font Access API bindings | — |
+| [atmos_local_fonts](packages/atmos_local_fonts) | Portable local-font model (faces, source) | [pub.dev](https://pub.dev/packages/atmos_local_fonts) |
+| [atmos_local_fonts_web](packages/atmos_local_fonts_web) | Browser local-font source (Local Font Access API) | [pub.dev](https://pub.dev/packages/atmos_local_fonts_web) |
+| [atmos_local_fonts_flutter](packages/atmos_local_fonts_flutter) | Register local font files with Flutter | [pub.dev](https://pub.dev/packages/atmos_local_fonts_flutter) |
+| [atmos_web_local_font_access_api](packages/atmos_web_local_font_access_api) | Local Font Access API bindings | [pub.dev](https://pub.dev/packages/atmos_web_local_font_access_api) |
 | [atmos_web_js_utils](packages/atmos_web_js_utils) | Browser JS interop helpers (Promise↔Future, …) | [pub.dev](https://pub.dev/packages/atmos_web_js_utils) |
 | [atmos_multithreading](packages/atmos_multithreading) | Portable parallel compute API (jobs / local pool) | [pub.dev](https://pub.dev/packages/atmos_multithreading) |
 | [atmos_multithreading_web](packages/atmos_multithreading_web) | Web Worker pool for `atmos_multithreading` | [pub.dev](https://pub.dev/packages/atmos_multithreading_web) |
