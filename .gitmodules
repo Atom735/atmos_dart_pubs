@@ -1,0 +1,3 @@
+[submodule "packages/atmos_vsc_keybindings/lib/assets/vs-code-default-keybindings"]
+	path = packages/atmos_vsc_keybindings/lib/assets/vs-code-default-keybindings
+	url = https://github.com/codebling/vs-code-default-keybindings.git

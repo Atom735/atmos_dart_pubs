@@ -1,0 +1,34 @@
+name: atmos_vsc_keybindings_flutter
+version: 0.0.1-alpha
+description: >-
+  Flutter bindings for atmos_vsc_keybindings — AssetBundle loaders, key bridge,
+  and chord-aware shortcut widgets by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_keybindings_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_keybindings: ^0.0.1-alpha
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  assets:
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/windows.keybindings.json
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/macos.keybindings.json
+    - packages/atmos_vsc_keybindings/assets/vs-code-default-keybindings/linux.keybindings.json
+
+
+topics:
+  - keybindings
+  - shortcuts
+  - flutter
+  - vscode

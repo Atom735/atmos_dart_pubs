@@ -1,0 +1,5 @@
+# Keep dump JSON; drop upstream tooling from pub.dev tarball
+lib/assets/vs-code-default-keybindings/.github/
+lib/assets/vs-code-default-keybindings/scripts/
+lib/assets/vs-code-default-keybindings/.git/
+lib/assets/vs-code-default-keybindings/README.md
