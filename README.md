@@ -23,10 +23,10 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_vscode_theme_flutter](packages/atmos_vscode_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Bundled VS Code default keybindings + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
-| [atmos_vsc_l10n](packages/atmos_vsc_l10n) | VS Code-style NLS / l10n (`%keys%`, `package.nls`, `t()`) | — |
-| [atmos_vsc_l10n_flutter](packages/atmos_vsc_l10n_flutter) | AssetBundle loaders + `VscL10nScope` | — |
-| [atmos_vsc_commands](packages/atmos_vsc_commands) | Command hub (registry / execute) + contribution JSONC | — |
-| [atmos_vsc_commands_flutter](packages/atmos_vsc_commands_flutter) | `VscCommandHost` — keybindings → command service | — |
+| [atmos_vsc_l10n](packages/atmos_vsc_l10n) | VS Code-style NLS / l10n (`%keys%`, `package.nls`, `t()`) | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n) |
+| [atmos_vsc_l10n_flutter](packages/atmos_vsc_l10n_flutter) | AssetBundle loaders + `VscL10nScope` | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n_flutter) |
+| [atmos_vsc_commands](packages/atmos_vsc_commands) | Command hub (registry / execute) + contribution JSONC | [pub.dev](https://pub.dev/packages/atmos_vsc_commands) |
+| [atmos_vsc_commands_flutter](packages/atmos_vsc_commands_flutter) | `VscCommandHost` — keybindings → command service | [pub.dev](https://pub.dev/packages/atmos_vsc_commands_flutter) |
 
 | [atmos_filesystem](packages/atmos_filesystem) | Portable VS Code–like filesystem API (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Browser FSA adapter for `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
