@@ -29,7 +29,7 @@ packages/
 | [atmos_vsc_l10n_flutter](packages/atmos_vsc_l10n_flutter) | Загрузчики AssetBundle + `VscL10nScope` | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n_flutter) |
 | [atmos_vsc_commands](packages/atmos_vsc_commands) | Хаб команд (registry / execute) + contribution JSONC | [pub.dev](https://pub.dev/packages/atmos_vsc_commands) |
 | [atmos_vsc_commands_flutter](packages/atmos_vsc_commands_flutter) | `VscCommandHost` — keybindings → command service | [pub.dev](https://pub.dev/packages/atmos_vsc_commands_flutter) |
-| [atmos_vsc_codicon_flutter](packages/atmos_vsc_codicon_flutter) | Шрифт VS Code Codicon и полный набор кодпоинтов product icons | — |
+| [atmos_vsc_codicon_flutter](packages/atmos_vsc_codicon_flutter) | Шрифт VS Code Codicon и полный набор кодпоинтов product icons | [pub.dev](https://pub.dev/packages/atmos_vsc_codicon_flutter) |
 | [atmos_filesystem](packages/atmos_filesystem) | Портабельный filesystem API в духе VS Code (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Браузерный FSA-адаптер для `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | Биндинги File System Access API | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
