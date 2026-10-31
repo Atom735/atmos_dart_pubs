@@ -1,0 +1,23 @@
+name: atmos_local_fonts_web
+version: 0.1.0
+description: >-
+  Web local-font source for atmos_local_fonts by Atom735,
+  using the Local Font Access API.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_local_fonts_web
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_local_fonts: ^0.1.0
+  atmos_web_local_font_access_api: ^0.1.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - fonts
+  - web
+  - browser

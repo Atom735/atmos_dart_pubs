@@ -1,0 +1,25 @@
+name: atmos_local_fonts_flutter
+version: 0.1.0
+description: >-
+  Register local font files with Flutter by Atom735:
+  FontLoader session and an isLoading flag.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_local_fonts_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_local_fonts: ^0.1.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - fonts
+  - flutter

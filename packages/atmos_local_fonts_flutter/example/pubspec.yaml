@@ -1,0 +1,22 @@
+name: atmos_local_fonts_flutter_example
+description: >-
+  Flutter web preview of system fonts: family list, sample texts,
+  and a live sample rendered with the selected face.
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_local_fonts: ^0.1.0
+  atmos_local_fonts_flutter:
+    path: ../
+  atmos_local_fonts_web: ^0.1.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
