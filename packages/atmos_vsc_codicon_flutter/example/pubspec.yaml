@@ -1,0 +1,18 @@
+name: atmos_vsc_codicon_flutter_example
+description: Web gallery of the bundled VS Code Codicon font.
+publish_to: none
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  atmos_vsc_codicon_flutter:
+    path: ../
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter

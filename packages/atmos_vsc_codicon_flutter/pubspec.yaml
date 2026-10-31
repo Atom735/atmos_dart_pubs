@@ -1,0 +1,32 @@
+name: atmos_vsc_codicon_flutter
+version: 0.0.1-alpha
+description: >-
+  VS Code Codicon icon font for Flutter by Atom735:
+  bundled codicon.ttf and the full product-icon code point set.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_vsc_codicon_flutter
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+  flutter: '>=3.16.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+topics:
+  - icons
+  - fonts
+  - flutter
+  - vscode
+
+flutter:
+  fonts:
+    - family: codicon
+      fonts:
+        - asset: assets/codicon.ttf

@@ -1,0 +1,12 @@
+{
+    "name": "Codicons",
+    "short_name": "Codicons",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#1e1e1e",
+    "theme_color": "#1e1e1e",
+    "description": "VS Code Codicon gallery",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": []
+}

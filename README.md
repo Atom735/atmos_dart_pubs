@@ -1,5 +1,7 @@
 # atmos_dart_pubs
 
+Русский: [README_RU.md](README_RU.md).
+
 Monorepo for public Flutter and Dart packages by [Atom735](https://github.com/Atom735).
 
 ## Layout
@@ -27,7 +29,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_vsc_l10n_flutter](packages/atmos_vsc_l10n_flutter) | AssetBundle loaders + `VscL10nScope` | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n_flutter) |
 | [atmos_vsc_commands](packages/atmos_vsc_commands) | Command hub (registry / execute) + contribution JSONC | [pub.dev](https://pub.dev/packages/atmos_vsc_commands) |
 | [atmos_vsc_commands_flutter](packages/atmos_vsc_commands_flutter) | `VscCommandHost` — keybindings → command service | [pub.dev](https://pub.dev/packages/atmos_vsc_commands_flutter) |
-
+| [atmos_vsc_codicon_flutter](packages/atmos_vsc_codicon_flutter) | VS Code Codicon font + full product-icon code points | — |
 | [atmos_filesystem](packages/atmos_filesystem) | Portable VS Code–like filesystem API (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Browser FSA adapter for `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | File System Access API bindings | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
