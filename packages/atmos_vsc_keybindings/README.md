@@ -3,6 +3,8 @@
 Pure-Dart **VS Code / Cursor** default keybindings + hotkey engine by
 [Atom735](https://github.com/Atom735).
 
+Русский: [README_RU.md](README_RU.md).
+
 - Bundled OS dumps via git submodule
   [`lib/assets/vs-code-default-keybindings`](lib/assets/vs-code-default-keybindings)
   from
