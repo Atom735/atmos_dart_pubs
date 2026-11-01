@@ -1,0 +1,35 @@
+name: atmos_tiled_text_renderer_example
+description: Four-line Dart hello world rendered by atmos_tiled_text_renderer.
+publish_to: none
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: '>=3.16.9'
+
+dependencies:
+  atmos_tiled_text_renderer:
+    path: ../
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Fira Code
+      fonts:
+        - asset: fonts/FiraCode-Regular.ttf
+    - family: JetBrains Mono
+      fonts:
+        - asset: fonts/JetBrainsMono-Regular.ttf
+    - family: Cascadia Mono
+      fonts:
+        - asset: fonts/CascadiaMono-Regular.ttf
+    - family: Liberation Mono
+      fonts:
+        - asset: fonts/LiberationMono-Regular.ttf

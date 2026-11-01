@@ -1,0 +1,54 @@
+name: atmos_tiled_text_renderer
+description: >-
+  GPU-accelerated monospace text atlas that draws a frame
+  with a single Canvas.drawAtlas call.
+version: 0.1.1
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_tiled_text_renderer
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+topics:
+  - flutter
+  - text
+  - ui
+  - rendering
+  - canvas
+
+# Пакет на dart:ui, без платформенных каналов: все цели Flutter.
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+  flutter: '>=3.16.9'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  flutter_test:
+    sdk: flutter
+
+screenshots:
+  - description: >-
+      Four-line Dart hello world drawn by one Canvas.drawAtlas call per font.
+    path: example/screenshots/hello_world_gallery.png
+  - description: The same hello world rendered from a Fira Code glyph atlas.
+    path: example/screenshots/hello_world_fira_code.png
+  - description: >-
+      The same hello world rendered from a JetBrains Mono glyph atlas.
+    path: example/screenshots/hello_world_jetbrains_mono.png
+  - description: >-
+      The same hello world rendered from a Cascadia Mono glyph atlas.
+    path: example/screenshots/hello_world_cascadia_mono.png
+  - description: >-
+      The same hello world rendered from a Liberation Mono glyph atlas.
+    path: example/screenshots/hello_world_liberation_mono.png
+
+flutter:
