@@ -21,7 +21,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_jsonc](packages/atmos_jsonc) | Streaming JSONC decoder (comments, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
-| [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU monospace text atlas, one `Canvas.drawAtlas` per frame | — |
+| [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU monospace text atlas, one `Canvas.drawAtlas` per frame | [pub.dev](https://pub.dev/packages/atmos_tiled_text_renderer) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_ui](packages/atmos_vsc_ui) | VS Code-like workbench widgets (no Material / Cupertino) | — |

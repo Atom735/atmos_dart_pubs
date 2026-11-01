@@ -21,7 +21,7 @@ packages/
 | [atmos_jsonc](packages/atmos_jsonc) | Потоковый JSONC-декодер (комментарии, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Общие пресеты analyzer/linter (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Композируемый логгер (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
-| [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU-атлас моноширинного текста, один `Canvas.drawAtlas` на кадр | — |
+| [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU-атлас моноширинного текста, один `Canvas.drawAtlas` на кадр | [pub.dev](https://pub.dev/packages/atmos_tiled_text_renderer) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Парсинг цветовых тем VS Code / Cursor (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | — |
 | [atmos_vsc_ui](packages/atmos_vsc_ui) | Виджеты workbench в духе VS Code (без Material / Cupertino) | — |
