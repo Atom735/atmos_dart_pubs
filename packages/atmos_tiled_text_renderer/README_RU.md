@@ -1,8 +1,8 @@
 # atmos_tiled_text_renderer
 
-Пакет Flutter для посимвольного рендеринга моноширинного текста через текстурный атлас. Глифы запекаются в одну `ui.Image`, а кадр собирается одним вызовом `Canvas.drawAtlas`.
-
 English: [README.md](README.md).
+
+Пакет Flutter для посимвольного рендеринга моноширинного текста через текстурный атлас. Глифы запекаются в одну `ui.Image`, а кадр собирается одним вызовом `Canvas.drawAtlas`.
 
 Кадр рисует `AtlasTextPainter`: подложки ячеек, затем один `Canvas.drawAtlas` по уже плоским строкам `FlattenedLineCache`.
 
@@ -10,7 +10,7 @@ English: [README.md](README.md).
 
 ```yaml
 dependencies:
-  atmos_tiled_text_renderer: ^0.1.1
+  atmos_tiled_text_renderer: ^0.1.2
 ```
 
 Нижняя граница — Flutter **3.16.9** (Dart 3.2.6).
@@ -58,7 +58,7 @@ Widget frame() {
 
 В `example/` один и тот же hello world из четырёх строк набран Fira Code, JetBrains Mono, Cascadia Mono и Liberation Mono. Liberation Mono повторяет метрику Courier New. Consolas и сам Courier New в репозиторий не входят.
 
-Те же кадры в [`example/README.md`](example/README.md).
+Те же кадры в [`example/README_RU.md`](example/README_RU.md).
 
 <p>
   <img src="example/screenshots/hello_world_gallery.png" alt="Hello world gallery" width="689">
@@ -116,3 +116,10 @@ flutter build web --release --web-renderer canvaskit --no-web-resources-cdn --pw
 ## Лицензия
 
 BSD 3-Clause — см. [LICENSE](LICENSE).
+
+Шрифты примера этой лицензией не покрыты. Тексты лежат в `example/fonts/LICENSES/`:
+
+- Fira Code — SIL Open Font License 1.1
+- JetBrains Mono — Apache License 2.0
+- Cascadia Mono — SIL Open Font License 1.1 (зарезервированное имя Cascadia Code)
+- Liberation Mono — SIL Open Font License 1.1

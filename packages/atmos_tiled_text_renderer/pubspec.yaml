@@ -2,7 +2,7 @@ name: atmos_tiled_text_renderer
 description: >-
   GPU-accelerated monospace text atlas that draws a frame
   with a single Canvas.drawAtlas call.
-version: 0.1.1
+version: 0.1.2
 repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_tiled_text_renderer
 issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
 
@@ -50,5 +50,3 @@ screenshots:
   - description: >-
       The same hello world rendered from a Liberation Mono glyph atlas.
     path: example/screenshots/hello_world_liberation_mono.png
-
-flutter:

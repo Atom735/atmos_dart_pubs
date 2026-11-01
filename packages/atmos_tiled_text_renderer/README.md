@@ -1,8 +1,8 @@
 # atmos_tiled_text_renderer
 
-GPU-accelerated monospace text. Glyphs are baked into one `ui.Image`, and each frame is a single `Canvas.drawAtlas` call.
-
 Русский: [README_RU.md](README_RU.md).
+
+GPU-accelerated monospace text. Glyphs are baked into one `ui.Image`, and each frame is a single `Canvas.drawAtlas` call.
 
 `AtlasTextPainter` draws the frame: cell backgrounds, then one `Canvas.drawAtlas` over already flat `FlattenedLineCache` lines.
 
@@ -10,7 +10,7 @@ GPU-accelerated monospace text. Glyphs are baked into one `ui.Image`, and each f
 
 ```yaml
 dependencies:
-  atmos_tiled_text_renderer: ^0.1.1
+  atmos_tiled_text_renderer: ^0.1.2
 ```
 
 The lower bound is Flutter **3.16.9** (Dart 3.2.6).
@@ -116,3 +116,10 @@ Glyphs in the atlas are white. The span color is passed to `drawAtlas` in the `c
 ## License
 
 BSD 3-Clause — see [LICENSE](LICENSE).
+
+Fonts shipped with the example are not under that license. Their texts are in `example/fonts/LICENSES/`:
+
+- Fira Code — SIL Open Font License 1.1
+- JetBrains Mono — Apache License 2.0
+- Cascadia Mono — SIL Open Font License 1.1 (reserved font name Cascadia Code)
+- Liberation Mono — SIL Open Font License 1.1

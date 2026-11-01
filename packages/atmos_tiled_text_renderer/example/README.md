@@ -1,14 +1,11 @@
 # Hello world
 
+Русский: [README_RU.md](README_RU.md).
+
 Four lines of the same Dart block, drawn from an atlas in Fira Code,
 JetBrains Mono, Cascadia Mono, and Liberation Mono. Liberation Mono
 matches Courier New metrics. Consolas and Courier New are not in the
 repository.
-
-Четыре строки одного и того же Dart-блока, нарисованные атласом
-на Fira Code, JetBrains Mono, Cascadia Mono и Liberation Mono.
-Liberation Mono повторяет метрику Courier New. Consolas и Courier New
-в репозиторий не входят.
 
 ## Screenshots
 
@@ -34,23 +31,21 @@ Liberation Mono повторяет метрику Courier New. Consolas и Couri
 
 ```bash
 flutter run -d chrome
-flutter build web --release --base-href "/atmos_tiled_text_renderer/" --web-renderer canvaskit --no-web-resources-cdn --pwa-strategy none
 ```
 
-`flutter run -d chrome` opens the example locally. `build web` writes
-static files to `build/web`: CanvasKit, the repository base path for
-GitHub Pages, and no service worker, so the next publish is not stuck
-in cache. Publishing is the `pages` workflow at the repository root,
-after Pages is set to GitHub Actions.
+`Canvas.drawAtlas` does not draw the atlas on Flutter's HTML renderer.
+Build the web example with CanvasKit:
 
-`flutter run -d chrome` открывает пример локально. Команда `build web`
-кладёт статику в `build/web`: CanvasKit, базовый путь репозитория на
-GitHub Pages и без service worker, чтобы следующая публикация не
-оставалась в кэше. Публикация — workflow `pages` в корне репозитория,
-после включения Pages со источником GitHub Actions.
+```bash
+flutter build web --release --web-renderer canvaskit --no-web-resources-cdn --pwa-strategy none
+```
 
-Golden frames live in `test/goldens/`. After a layout change, recapture
-them with `flutter test --update-goldens`.
+## Fonts
 
-Золотые кадры лежат в `test/goldens/`. После правки вёрстки их
-переснимают командой `flutter test --update-goldens`.
+Faces under `fonts/` keep their own licenses in `fonts/LICENSES/`.
+They are not covered by the package BSD license.
+
+- Fira Code — SIL Open Font License 1.1
+- JetBrains Mono — Apache License 2.0
+- Cascadia Mono — SIL Open Font License 1.1 (reserved font name Cascadia Code)
+- Liberation Mono — SIL Open Font License 1.1

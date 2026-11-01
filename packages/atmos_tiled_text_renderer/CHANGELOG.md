@@ -2,6 +2,12 @@
 
 Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
 
+## 0.1.2
+
+- README cross-links sit at the top of each file
+- Example README no longer describes a GitHub Pages workflow or golden tests that are not in the repository
+- Example font licenses are listed separately from the BSD package license
+
 ## 0.1.1
 
 - Package now lives in the [atmos_dart_pubs](https://github.com/Atom735/atmos_dart_pubs) monorepo
