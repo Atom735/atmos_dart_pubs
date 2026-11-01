@@ -1,0 +1,20 @@
+name: atmos_iasm
+version: 0.1.0
+description: >-
+  Pure-Dart x86 disassembler in the style of Capstone (Intel syntax,
+  32/64-bit) by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_iasm
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - disassembler
+  - x86
+  - assembly
+  - binary

@@ -9,15 +9,21 @@ Monorepo for public Flutter and Dart packages by [Atom735](https://github.com/At
 ```text
 packages/
   <package_name>/   # one pub package per folder
+apps/
+  atmos_unv/        # demo web app, not published
 ```
 
 Each package under `packages/` is published independently to [pub.dev](https://pub.dev).
+
+[atmos_unv](apps/atmos_unv) is a local web demo (folder viewer on the VSC workbench). It is not a pub package.
 
 ## Packages
 
 | Package | Description | pub.dev |
 |---------|-------------|---------|
 | [atmos_binary_buffer](packages/atmos_binary_buffer) | Binary reader/writer, floats, UUID, LEB128, FourCC | [pub.dev](https://pub.dev/packages/atmos_binary_buffer) |
+| [atmos_efil](packages/atmos_efil) | ELF and PE editor (entry point, same-size section replace) | — |
+| [atmos_iasm](packages/atmos_iasm) | x86 disassembler, Intel syntax (32/64-bit) | — |
 | [atmos_jsonc](packages/atmos_jsonc) | Streaming JSONC decoder (comments, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |

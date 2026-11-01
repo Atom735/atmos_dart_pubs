@@ -9,15 +9,21 @@ English: [README.md](README.md).
 ```text
 packages/
   <package_name>/   # один pub-пакет на папку
+apps/
+  atmos_unv/        # демонстрационное веб-приложение, не публикуется
 ```
 
 Каждый пакет в `packages/` публикуется на [pub.dev](https://pub.dev) отдельно.
+
+[atmos_unv](apps/atmos_unv) — локальное веб-демо (просмотр папки в оболочке VSC). Это не pub-пакет.
 
 ## Пакеты
 
 | Пакет | Описание | pub.dev |
 |-------|----------|---------|
 | [atmos_binary_buffer](packages/atmos_binary_buffer) | Бинарный reader/writer, floats, UUID, LEB128, FourCC | [pub.dev](https://pub.dev/packages/atmos_binary_buffer) |
+| [atmos_efil](packages/atmos_efil) | Редактор ELF и PE (точка входа, замена секции той же длины) | — |
+| [atmos_iasm](packages/atmos_iasm) | Дизассемблер x86, Intel-синтаксис (32/64 бита) | — |
 | [atmos_jsonc](packages/atmos_jsonc) | Потоковый JSONC-декодер (комментарии, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Общие пресеты analyzer/linter (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Композируемый логгер (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |

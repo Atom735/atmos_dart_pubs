@@ -1,0 +1,23 @@
+name: atmos_efil
+version: 0.1.0
+description: >-
+  Pure-Dart editor for executable images (ELF and PE/COFF, with Mach-O
+  identification) by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_efil
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_binary_buffer: ^2.1.1
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - elf
+  - pe
+  - executable
+  - binary
