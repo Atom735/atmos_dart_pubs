@@ -34,6 +34,7 @@ packages/
 | [atmos_filesystem](packages/atmos_filesystem) | Портабельный filesystem API в духе VS Code (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Браузерный FSA-адаптер для `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | Биндинги File System Access API | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
+| [atmos_web_indexeddb_api](packages/atmos_web_indexeddb_api) | Биндинги IndexedDB API | — |
 | [atmos_local_fonts](packages/atmos_local_fonts) | Портабельная модель локальных шрифтов (faces, source) | [pub.dev](https://pub.dev/packages/atmos_local_fonts) |
 | [atmos_local_fonts_web](packages/atmos_local_fonts_web) | Источник локальных шрифтов в браузере (Local Font Access API) | [pub.dev](https://pub.dev/packages/atmos_local_fonts_web) |
 | [atmos_local_fonts_flutter](packages/atmos_local_fonts_flutter) | Регистрация локальных шрифтов во Flutter | [pub.dev](https://pub.dev/packages/atmos_local_fonts_flutter) |
