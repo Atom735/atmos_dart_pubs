@@ -1,5 +1,5 @@
 name: atmos_web_js_utils
-version: 0.1.0
+version: 0.1.1
 description: >-
   Small Dart helpers for browser JS interop by Atom735:
   Promise↔Future, property access, method calls, typed casts.

@@ -50,6 +50,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_multithreading](packages/atmos_multithreading) | Portable parallel compute API (jobs / local pool) | [pub.dev](https://pub.dev/packages/atmos_multithreading) |
 | [atmos_multithreading_web](packages/atmos_multithreading_web) | Web Worker pool for `atmos_multithreading` | [pub.dev](https://pub.dev/packages/atmos_multithreading_web) |
 | [atmos_web_worker](packages/atmos_web_worker) | Browser Web Worker bindings | [pub.dev](https://pub.dev/packages/atmos_web_worker) |
+| [atmos_web_worker_scope](packages/atmos_web_worker_scope) | Dedicated worker global for a Dart worker script | — |
 | [atmos_web_shared_buffer_api](packages/atmos_web_shared_buffer_api) | SharedArrayBuffer + Atomics bindings | [pub.dev](https://pub.dev/packages/atmos_web_shared_buffer_api) |
 
 ## Development

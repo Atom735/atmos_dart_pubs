@@ -126,9 +126,8 @@ class _DemoPageState extends State<_DemoPage> {
 
   Future<void> _saveFile() async {
     await _run('save file picker', () async {
-      final suggested = _relPath.text.trim().isEmpty
-          ? 'demo.txt'
-          : _relPath.text.trim();
+      final suggested =
+          _relPath.text.trim().isEmpty ? 'demo.txt' : _relPath.text.trim();
       final handle = await showSaveFilePicker(
         SaveFilePickerOptions(
           suggestedName: suggested,

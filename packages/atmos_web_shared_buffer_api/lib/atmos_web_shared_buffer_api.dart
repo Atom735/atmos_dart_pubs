@@ -5,3 +5,4 @@ export 'src/atomics.dart';
 export 'src/int32_array.dart';
 export 'src/shared_array_buffer.dart';
 export 'src/support.dart';
+export 'src/uint8_array.dart';

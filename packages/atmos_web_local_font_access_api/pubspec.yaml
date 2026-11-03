@@ -1,5 +1,5 @@
 name: atmos_web_local_font_access_api
-version: 0.1.0
+version: 0.1.1
 description: >-
   Browser Local Font Access API bindings by Atom735:
   list installed fonts and read font-file bytes.

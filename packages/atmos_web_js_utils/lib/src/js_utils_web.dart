@@ -100,7 +100,8 @@ Uint8List jsBytesFromUint8Array(Object jsUint8Array) {
   if (jsUint8Array is JSUint8Array) {
     return jsUint8Array.toDart;
   }
-  // ArrayBuffer → Uint8Array view
+  // ArrayBuffer → Uint8Array view. SharedArrayBuffer stays shared:
+  // `toDart` wraps the same bytes and does not clone them.
   final ctor = jsGlobal('Uint8Array');
   if (ctor != null) {
     final view = js_util.callConstructor(ctor, [jsUint8Array]);

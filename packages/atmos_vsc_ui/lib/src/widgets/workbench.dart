@@ -136,11 +136,13 @@ class VscWorkbench extends StatelessWidget {
                         child: ColoredBox(
                           color: theme.editorBackground,
                           child: DefaultTextStyle(
-                            style: TextStyle(
-                              color: theme.editorForeground,
-                              fontSize: 13,
-                              decoration: TextDecoration.none,
-                            ),
+                            style: DefaultTextStyle.of(context).style.merge(
+                                  TextStyle(
+                                    color: theme.editorForeground,
+                                    fontSize: 13,
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
                             child: editor,
                           ),
                         ),

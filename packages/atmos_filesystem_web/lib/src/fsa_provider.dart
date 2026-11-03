@@ -180,6 +180,48 @@ class FsaFileSystemProvider extends FileSystemProvider {
   }
 
   @override
+  Future<Uint8List> readFileRange(Uri resource, int offset, int length) async {
+    if (offset < 0) {
+      throw ArgumentError.value(offset, 'offset', 'must be >= 0');
+    }
+    if (length < 0) {
+      throw ArgumentError.value(length, 'length', 'must be >= 0');
+    }
+    if (length == 0) return Uint8List(0);
+    final parts = _parts(resource);
+    if (parts.isEmpty) {
+      throw FileSystemException('Not a file', uri: resource);
+    }
+    try {
+      final (parent, name) = await _parent(parts);
+      final file = await parent.getFileHandle(name);
+      final blob = await file.getFile();
+      final slice = jsCallMethod<Object>(
+        blob,
+        'slice',
+        <Object?>[offset, offset + length],
+      );
+      return _bytesOfBlob(slice);
+    } on FileSystemException {
+      rethrow;
+    } on Object catch (e) {
+      throw FileNotFoundException(resource, cause: e);
+    }
+  }
+
+  Future<Uint8List> _bytesOfBlob(Object blob) async {
+    final buffer = await jsMaybePromiseToFuture<Object>(
+      jsCallMethod<Object>(blob, 'arrayBuffer'),
+    );
+    final ctor = jsGlobal('Uint8Array');
+    if (ctor == null) {
+      throw FileSystemException('Uint8Array is not available');
+    }
+    final view = jsConstruct(ctor, <Object?>[buffer]);
+    return jsBytesFromUint8Array(view);
+  }
+
+  @override
   Future<void> writeFile(
     Uri resource,
     Uint8List content,

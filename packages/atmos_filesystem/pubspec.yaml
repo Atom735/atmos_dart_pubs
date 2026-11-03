@@ -1,5 +1,5 @@
 name: atmos_filesystem
-version: 0.1.0
+version: 0.1.1
 description: >-
   Portable, VS Code–inspired filesystem API for Dart by Atom735:
   URI resources, capabilities, providers, memory backend.

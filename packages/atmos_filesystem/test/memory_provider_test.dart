@@ -19,6 +19,9 @@ void main() {
     await fs.writeFile(file, Uint8List.fromList(utf8.encode('hello')));
 
     expect(utf8.decode(await fs.readFile(file)), 'hello');
+    expect(utf8.decode(await fs.readFileRange(file, 1, 3)), 'ell');
+    expect(await fs.readFileRange(file, 4, 10), [111]);
+    expect(await fs.readFileRange(file, 0, 0), isEmpty);
     expect(await fs.readDirectory(dir), [
       ('hi.txt', FileType.file),
     ]);

@@ -1,5 +1,5 @@
 name: atmos_web_worker
-version: 0.1.0
+version: 0.1.1
 description: >-
   Dart bindings for browser Web Workers by Atom735:
   create workers, postMessage, message/error streams.

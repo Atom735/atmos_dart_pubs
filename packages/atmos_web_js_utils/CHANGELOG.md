@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1
+
+### EN
+
+- `jsBytesFromUint8Array` views the JS buffer. A `SharedArrayBuffer` is not cloned
+
+### RU
+
+- `jsBytesFromUint8Array` смотрит на JS-буфер. `SharedArrayBuffer` не копируется
+
 ## 0.1.0
 
 ### EN

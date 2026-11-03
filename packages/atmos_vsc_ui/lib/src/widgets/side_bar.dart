@@ -60,11 +60,13 @@ class VscSideBar extends StatelessWidget {
             ),
             Expanded(
               child: DefaultTextStyle(
-                style: TextStyle(
-                  color: theme.sideBarForeground,
-                  fontSize: 13,
-                  decoration: TextDecoration.none,
-                ),
+                style: DefaultTextStyle.of(context).style.merge(
+                      TextStyle(
+                        color: theme.sideBarForeground,
+                        fontSize: 13,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
                 child: child,
               ),
             ),

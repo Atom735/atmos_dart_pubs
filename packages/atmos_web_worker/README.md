@@ -40,6 +40,7 @@ void main() {
 | [`atmos_multithreading_web`](https://pub.dev/packages/atmos_multithreading_web) | Job pool over workers |
 | [`atmos_web_shared_buffer_api`](https://pub.dev/packages/atmos_web_shared_buffer_api) | SharedArrayBuffer + Atomics |
 | [`atmos_web_js_utils`](https://pub.dev/packages/atmos_web_js_utils) | JS interop helpers |
+| [`atmos_web_worker_scope`](https://pub.dev/packages/atmos_web_worker_scope) | Dart script inside the worker |
 
 ## License
 

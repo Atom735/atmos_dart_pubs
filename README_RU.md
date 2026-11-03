@@ -50,6 +50,7 @@ apps/
 | [atmos_multithreading](packages/atmos_multithreading) | Портабельный API параллельных вычислений (jobs / local pool) | [pub.dev](https://pub.dev/packages/atmos_multithreading) |
 | [atmos_multithreading_web](packages/atmos_multithreading_web) | Пул Web Worker для `atmos_multithreading` | [pub.dev](https://pub.dev/packages/atmos_multithreading_web) |
 | [atmos_web_worker](packages/atmos_web_worker) | Биндинги браузерного Web Worker | [pub.dev](https://pub.dev/packages/atmos_web_worker) |
+| [atmos_web_worker_scope](packages/atmos_web_worker_scope) | Глобальный scope dedicated worker для скрипта на Dart | — |
 | [atmos_web_shared_buffer_api](packages/atmos_web_shared_buffer_api) | Биндинги SharedArrayBuffer + Atomics | [pub.dev](https://pub.dev/packages/atmos_web_shared_buffer_api) |
 
 ## Разработка

@@ -1,5 +1,5 @@
 name: atmos_filesystem_web
-version: 0.1.0
+version: 0.1.1
 description: >-
   Browser File System Access adapter for atmos_filesystem by Atom735:
   directory-handle roots, URI mapping, read/write via FSA.
@@ -10,7 +10,7 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
-  atmos_filesystem: ^0.1.0
+  atmos_filesystem: ^0.1.1
   atmos_web_files_system_access_api: ^0.1.0
   atmos_web_js_utils: ^0.1.0
 

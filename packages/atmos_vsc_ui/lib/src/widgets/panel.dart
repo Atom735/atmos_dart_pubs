@@ -67,12 +67,10 @@ class VscPanel extends StatelessWidget {
               children: [
                 for (final tab in tabs)
                   VscPressable(
-                    onTap: onSelected == null
-                        ? null
-                        : () => onSelected!(tab.id),
-                    backgroundColor: tab.id == selectedId
-                        ? theme.tabActiveBackground
-                        : null,
+                    onTap:
+                        onSelected == null ? null : () => onSelected!(tab.id),
+                    backgroundColor:
+                        tab.id == selectedId ? theme.tabActiveBackground : null,
                     hoverColor: theme.listHoverBackground,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -121,11 +119,13 @@ class VscPanel extends StatelessWidget {
           ),
           Expanded(
             child: DefaultTextStyle(
-              style: TextStyle(
-                color: theme.editorForeground,
-                fontSize: 13,
-                decoration: TextDecoration.none,
-              ),
+              style: DefaultTextStyle.of(context).style.merge(
+                    TextStyle(
+                      color: theme.editorForeground,
+                      fontSize: 13,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
               child: child,
             ),
           ),

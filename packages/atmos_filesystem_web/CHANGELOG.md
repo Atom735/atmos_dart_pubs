@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1
+
+### EN
+
+- `readFileRange` uses `Blob.slice`, so a large file is not loaded whole
+- Depends on `atmos_filesystem` 0.1.1
+
+### RU
+
+- `readFileRange` идёт через `Blob.slice`, большой файл не читается целиком
+- Зависимость от `atmos_filesystem` 0.1.1
+
 ## 0.1.0
 
 ### EN

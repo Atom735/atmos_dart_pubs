@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
-import 'js_utils_stub.dart'
-    if (dart.library.js_interop) 'js_utils_web.dart' as impl;
+import 'js_utils_stub.dart' if (dart.library.js_interop) 'js_utils_web.dart'
+    as impl;
 
 export 'js_extensions_stub.dart'
     if (dart.library.js_interop) 'js_extensions.dart';
@@ -55,7 +55,11 @@ Object jsArray(Iterable<Object?> items) => impl.jsArray(items);
 Object jsUint8ArrayFromBytes(Uint8List bytes) =>
     impl.jsUint8ArrayFromBytes(bytes);
 
-/// Copies a JS `Uint8Array` / `ArrayBuffer` view into a Dart [Uint8List].
+/// Wraps a JS `Uint8Array` or `ArrayBuffer` as a Dart [Uint8List].
+///
+/// The list views the same bytes. A `SharedArrayBuffer` is not cloned.
+/// [ByteData.sublistView] cannot read that view: index it, or copy a
+/// slice into a new [Uint8List] before calling it.
 Uint8List jsBytesFromUint8Array(Object jsUint8Array) =>
     impl.jsBytesFromUint8Array(jsUint8Array);
 

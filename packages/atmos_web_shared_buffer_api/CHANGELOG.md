@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1
+
+### EN
+
+- `SharedUint8Array` view: read, write, and copy byte ranges on a shared buffer
+
+### RU
+
+- Представление `SharedUint8Array`: чтение, запись и копия диапазона байтов
+
 ## 0.1.0
 
 ### EN

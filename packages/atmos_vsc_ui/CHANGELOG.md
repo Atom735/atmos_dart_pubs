@@ -4,6 +4,7 @@
 
 ## 0.3.0-alpha
 
+- Workbench, side bar, panel, and status bar keep the ambient font and only override color and size
 - Product icons use `VscCodicon` from `atmos_vsc_codicon_flutter`
 - Removed geometric `VscIcons`
 - Command palette draws `$(codicon)` icons from command contributions

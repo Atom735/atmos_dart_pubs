@@ -86,6 +86,11 @@ class AtmosFileSystem {
   /// See [FileSystemProvider.readFile].
   Future<Uint8List> readFile(Uri uri) => providerFor(uri).readFile(uri);
 
+  /// See [FileSystemProvider.readFileRange].
+  Future<Uint8List> readFileRange(Uri uri, int offset, int length) {
+    return providerFor(uri).readFileRange(uri, offset, length);
+  }
+
   /// See [FileSystemProvider.writeFile].
   Future<void> writeFile(
     Uri uri,

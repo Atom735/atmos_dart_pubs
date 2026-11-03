@@ -24,11 +24,13 @@ class VscStatusBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = VscUiTheme.of(context);
-    final style = TextStyle(
-      color: theme.statusBarForeground,
-      fontSize: 12,
-      decoration: TextDecoration.none,
-    );
+    final style = DefaultTextStyle.of(context).style.merge(
+          TextStyle(
+            color: theme.statusBarForeground,
+            fontSize: 12,
+            decoration: TextDecoration.none,
+          ),
+        );
     return ColoredBox(
       color: theme.statusBarBackground,
       child: SizedBox(

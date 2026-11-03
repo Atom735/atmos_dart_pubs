@@ -5,6 +5,8 @@ Portable, **VS Code–inspired** filesystem API for Dart by [Atom735](https://gi
 URI-based resources, capability flags, and a provider interface similar to
 VS Code’s posix-like layer (`stat` / `readDirectory` / `readFile` / `writeFile` /
 optional `open` · `read` · `write` · `close`) — without claiming full POSIX.1.
+`readFileRange` reads a slice; the default implementation still loads the
+whole file first.
 
 ## Install
 

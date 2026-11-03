@@ -67,8 +67,24 @@ Future<List<LocalFontData>> queryLocalFonts([
 List<LocalFontData> _fontDataList(Object value) {
   final length = jsGetProperty<Object?>(value, 'length');
   final len = length is num ? length.toInt() : 0;
-  return <LocalFontData>[
-    for (var i = 0; i < len; i++)
-      LocalFontData(jsGetProperty<Object>(value, i)),
-  ];
+  final fonts = <LocalFontData>[];
+  for (var i = 0; i < len; i++) {
+    final face = _fontAt(value, i);
+    if (face == null) continue;
+    fonts.add(face);
+  }
+  return fonts;
+}
+
+/// One broken catalog entry must not hide Segoe UI and Consolas.
+LocalFontData? _fontAt(Object value, int index) {
+  try {
+    final raw = jsGetProperty<Object?>(value, index);
+    if (raw == null) return null;
+    final font = LocalFontData(raw);
+    if (font.family.isEmpty || font.postscriptName.isEmpty) return null;
+    return font;
+  } on Object {
+    return null;
+  }
 }

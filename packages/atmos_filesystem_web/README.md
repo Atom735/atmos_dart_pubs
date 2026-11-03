@@ -5,6 +5,7 @@ Browser **File System Access** adapter for
 [Atom735](https://github.com/Atom735).
 
 Maps `fsa:///relative/path` URIs onto a user-picked directory handle.
+`readFileRange` slices the file with `Blob.slice`.
 
 ## Install
 

@@ -4,6 +4,7 @@ English: [CHANGELOG.md](CHANGELOG.md).
 
 ## 0.3.0-alpha
 
+- Workbench, боковая панель, панель и статус-бар сохраняют текущий шрифт и меняют только цвет и размер
 - Product icons через `VscCodicon` из `atmos_vsc_codicon_flutter`
 - Удалены геометрические `VscIcons`
 - Command palette рисует иконки `$(codicon)` из вкладов команд

@@ -1,5 +1,5 @@
 name: atmos_web_shared_buffer_api
-version: 0.1.0
+version: 0.1.1
 description: >-
   Dart bindings for SharedArrayBuffer and Atomics by Atom735
   (cross-worker shared memory on the web).

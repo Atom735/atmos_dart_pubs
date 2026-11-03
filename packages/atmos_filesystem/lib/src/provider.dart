@@ -116,6 +116,25 @@ abstract class FileSystemProvider {
     );
   }
 
+  /// Reads [length] bytes from [offset].
+  ///
+  /// The default loads the file with [readFile] and slices it. A provider
+  /// that can address a range should override this and skip the rest.
+  Future<Uint8List> readFileRange(Uri resource, int offset, int length) async {
+    if (offset < 0) {
+      throw ArgumentError.value(offset, 'offset', 'must be >= 0');
+    }
+    if (length < 0) {
+      throw ArgumentError.value(length, 'length', 'must be >= 0');
+    }
+    if (length == 0) return Uint8List(0);
+    final all = await readFile(resource);
+    if (offset >= all.length) return Uint8List(0);
+    final end = offset + length;
+    final last = end > all.length ? all.length : end;
+    return Uint8List.fromList(all.sublist(offset, last));
+  }
+
   /// Writes the entire file.
   Future<void> writeFile(
     Uri resource,
@@ -178,5 +197,4 @@ class _NoopWatchSubscription implements FileSystemWatchSubscription {
 }
 
 /// Returns whether [capabilities] include [flag].
-bool hasCapability(int capabilities, int flag) =>
-    (capabilities & flag) == flag;
+bool hasCapability(int capabilities, int flag) => (capabilities & flag) == flag;

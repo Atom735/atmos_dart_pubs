@@ -22,8 +22,7 @@ Object? jsGlobal(String path) => _unsupported();
 
 Object jsNewObject() => _unsupported();
 
-Object jsConstruct(Object constructor, [List<Object?>? args]) =>
-    _unsupported();
+Object jsConstruct(Object constructor, [List<Object?>? args]) => _unsupported();
 
 Object? jsify(Object? value) => _unsupported();
 

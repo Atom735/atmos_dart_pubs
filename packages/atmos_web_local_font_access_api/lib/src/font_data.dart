@@ -13,10 +13,10 @@ class LocalFontData {
   ///
   /// Оборачивает JS-объект `FontData`.
   LocalFontData(this.jsObject)
-      : postscriptName = jsGetProperty<String>(jsObject, 'postscriptName'),
-        fullName = jsGetProperty<String>(jsObject, 'fullName'),
-        family = jsGetProperty<String>(jsObject, 'family'),
-        style = jsGetProperty<String>(jsObject, 'style');
+      : postscriptName = _fontString(jsObject, 'postscriptName'),
+        fullName = _fontString(jsObject, 'fullName'),
+        family = _fontString(jsObject, 'family'),
+        style = _fontString(jsObject, 'style');
 
   /// Underlying JS `FontData`.
   ///
@@ -45,7 +45,12 @@ class LocalFontData {
 
   /// Reads the font file (`FontData.blob()`).
   ///
+  /// The returned list owns a fresh `ArrayBuffer`. A `Uint8Array` view of
+  /// the blob cannot be passed to `ByteData.sublistView` or `FontLoader`.
+  ///
   /// Читает файл шрифта.
+  /// Список владеет новым `ArrayBuffer`: view на blob нельзя отдать
+  /// в `ByteData.sublistView` и `FontLoader`.
   Future<Uint8List> readBytes() async {
     try {
       final blob = await jsMaybePromiseToFuture<Object>(
@@ -59,7 +64,7 @@ class LocalFontData {
         throw const LocalFontAccessException('Uint8Array is not available');
       }
       final view = jsConstruct(ctor, <Object?>[buffer]);
-      return jsBytesFromUint8Array(view);
+      return Uint8List.fromList(jsBytesFromUint8Array(view));
     } on LocalFontAccessException {
       rethrow;
     } on Object catch (error) {
@@ -69,4 +74,10 @@ class LocalFontData {
       );
     }
   }
+}
+
+String _fontString(Object object, String name) {
+  final value = jsGetProperty<Object?>(object, name);
+  if (value is String) return value;
+  return '';
 }

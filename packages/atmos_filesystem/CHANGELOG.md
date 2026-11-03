@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1
+
+### EN
+
+- `readFileRange` reads a byte slice. The default loads the file and slices it
+
+### RU
+
+- `readFileRange` читает срез файла. По умолчанию файл загружается целиком и режется
+
 ## 0.1.0
 
 ### EN
