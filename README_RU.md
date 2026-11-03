@@ -22,15 +22,15 @@ apps/
 | Пакет | Описание | pub.dev |
 |-------|----------|---------|
 | [atmos_binary_buffer](packages/atmos_binary_buffer) | Бинарный reader/writer, floats, UUID, LEB128, FourCC | [pub.dev](https://pub.dev/packages/atmos_binary_buffer) |
-| [atmos_efil](packages/atmos_efil) | Редактор ELF и PE (точка входа, замена секции той же длины) | — |
-| [atmos_iasm](packages/atmos_iasm) | Дизассемблер x86, Intel-синтаксис (32/64 бита) | — |
+| [atmos_efil](packages/atmos_efil) | Редактор ELF и PE (точка входа, замена секции той же длины) | [pub.dev](https://pub.dev/packages/atmos_efil) |
+| [atmos_iasm](packages/atmos_iasm) | Дизассемблер x86, Intel-синтаксис (32/64 бита) | [pub.dev](https://pub.dev/packages/atmos_iasm) |
 | [atmos_jsonc](packages/atmos_jsonc) | Потоковый JSONC-декодер (комментарии, trailing commas, UTF-8) | [pub.dev](https://pub.dev/packages/atmos_jsonc) |
 | [atmos_lints](packages/atmos_lints) | Общие пресеты analyzer/linter (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Композируемый логгер (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 | [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU-атлас моноширинного текста, один `Canvas.drawAtlas` на кадр | [pub.dev](https://pub.dev/packages/atmos_tiled_text_renderer) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Парсинг цветовых тем VS Code / Cursor (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
-| [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | — |
-| [atmos_vsc_ui](packages/atmos_vsc_ui) | Виджеты workbench в духе VS Code (без Material / Cupertino) | — |
+| [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | [pub.dev](https://pub.dev/packages/atmos_vsc_theme_flutter) |
+| [atmos_vsc_ui](packages/atmos_vsc_ui) | Виджеты workbench в духе VS Code (без Material / Cupertino) | [pub.dev](https://pub.dev/packages/atmos_vsc_ui) |
 | [atmos_vsc_keybindings](packages/atmos_vsc_keybindings) | Бандл дефолтных keybindings VS Code + pure-Dart hotkey engine | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings) |
 | [atmos_vsc_keybindings_flutter](packages/atmos_vsc_keybindings_flutter) | Flutter asset loader + chord-aware key host | [pub.dev](https://pub.dev/packages/atmos_vsc_keybindings_flutter) |
 | [atmos_vsc_l10n](packages/atmos_vsc_l10n) | NLS / l10n в стиле VS Code (`%keys%`, `package.nls`, `t()`) | [pub.dev](https://pub.dev/packages/atmos_vsc_l10n) |
@@ -41,7 +41,7 @@ apps/
 | [atmos_filesystem](packages/atmos_filesystem) | Портабельный filesystem API в духе VS Code (providers, memory) | [pub.dev](https://pub.dev/packages/atmos_filesystem) |
 | [atmos_filesystem_web](packages/atmos_filesystem_web) | Браузерный FSA-адаптер для `atmos_filesystem` | [pub.dev](https://pub.dev/packages/atmos_filesystem_web) |
 | [atmos_web_files_system_access_api](packages/atmos_web_files_system_access_api) | Биндинги File System Access API | [pub.dev](https://pub.dev/packages/atmos_web_files_system_access_api) |
-| [atmos_web_indexeddb_api](packages/atmos_web_indexeddb_api) | Биндинги IndexedDB API | — |
+| [atmos_web_indexeddb_api](packages/atmos_web_indexeddb_api) | Биндинги IndexedDB API | [pub.dev](https://pub.dev/packages/atmos_web_indexeddb_api) |
 | [atmos_local_fonts](packages/atmos_local_fonts) | Портабельная модель локальных шрифтов (faces, source) | [pub.dev](https://pub.dev/packages/atmos_local_fonts) |
 | [atmos_local_fonts_web](packages/atmos_local_fonts_web) | Источник локальных шрифтов в браузере (Local Font Access API) | [pub.dev](https://pub.dev/packages/atmos_local_fonts_web) |
 | [atmos_local_fonts_flutter](packages/atmos_local_fonts_flutter) | Регистрация локальных шрифтов во Flutter | [pub.dev](https://pub.dev/packages/atmos_local_fonts_flutter) |
@@ -50,7 +50,7 @@ apps/
 | [atmos_multithreading](packages/atmos_multithreading) | Портабельный API параллельных вычислений (jobs / local pool) | [pub.dev](https://pub.dev/packages/atmos_multithreading) |
 | [atmos_multithreading_web](packages/atmos_multithreading_web) | Пул Web Worker для `atmos_multithreading` | [pub.dev](https://pub.dev/packages/atmos_multithreading_web) |
 | [atmos_web_worker](packages/atmos_web_worker) | Биндинги браузерного Web Worker | [pub.dev](https://pub.dev/packages/atmos_web_worker) |
-| [atmos_web_worker_scope](packages/atmos_web_worker_scope) | Глобальный scope dedicated worker для скрипта на Dart | — |
+| [atmos_web_worker_scope](packages/atmos_web_worker_scope) | Глобальный scope dedicated worker для скрипта на Dart | [pub.dev](https://pub.dev/packages/atmos_web_worker_scope) |
 | [atmos_web_shared_buffer_api](packages/atmos_web_shared_buffer_api) | Биндинги SharedArrayBuffer + Atomics | [pub.dev](https://pub.dev/packages/atmos_web_shared_buffer_api) |
 
 ## Разработка
