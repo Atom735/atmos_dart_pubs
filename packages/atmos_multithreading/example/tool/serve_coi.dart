@@ -27,7 +27,7 @@ Future<void> main(List<String> args) async {
     defaultDocument: 'index.html',
   );
 
-  final handler = Pipeline().addMiddleware((inner) {
+  final handler = const Pipeline().addMiddleware((inner) {
     return (request) async {
       final response = await inner(request);
       return response.change(

@@ -173,7 +173,7 @@ class FsaFileSystemProvider extends FileSystemProvider {
     try {
       final (parent, name) = await _parent(parts);
       final file = await parent.getFileHandle(name);
-      return file.readAsBytes();
+      return await file.readAsBytes();
     } on Object catch (e) {
       throw FileNotFoundException(resource, cause: e);
     }
@@ -201,7 +201,7 @@ class FsaFileSystemProvider extends FileSystemProvider {
         'slice',
         <Object?>[offset, offset + length],
       );
-      return _bytesOfBlob(slice);
+      return await _bytesOfBlob(slice);
     } on FileSystemException {
       rethrow;
     } on Object catch (e) {

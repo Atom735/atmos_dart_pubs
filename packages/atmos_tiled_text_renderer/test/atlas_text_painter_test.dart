@@ -254,7 +254,7 @@ Future<ByteData?> _raster(
     try {
       final image = await picture.toImage(width, height);
       try {
-        return image.toByteData(format: ImageByteFormat.rawRgba);
+        return await image.toByteData(format: ImageByteFormat.rawRgba);
       } finally {
         image.dispose();
       }

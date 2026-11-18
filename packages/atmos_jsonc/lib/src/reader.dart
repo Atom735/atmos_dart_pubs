@@ -318,6 +318,7 @@ class JsoncReader {
 ///
 /// ## RU
 /// Реализуйте [fromJsonc] через pull-чтение — без промежуточного `Map`.
+// ignore: one_member_abstracts
 abstract class JsoncBinder<T> {
   /// Creates a binder.
   const JsoncBinder();

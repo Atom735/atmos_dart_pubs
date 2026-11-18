@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+// ignore: deprecated_member_use
 import 'dart:js_util' as js_util;
 import 'dart:typed_data';
 
