@@ -1,5 +1,7 @@
 # atmos_filesystem_web
 
+Русский: [README_RU.md](README_RU.md).
+
 Browser **File System Access** adapter for
 [`atmos_filesystem`](https://pub.dev/packages/atmos_filesystem) by
 [Atom735](https://github.com/Atom735).
@@ -11,7 +13,7 @@ Maps `fsa:///relative/path` URIs onto a user-picked directory handle.
 
 ```yaml
 dependencies:
-  atmos_filesystem_web: ^0.1.0
+  atmos_filesystem_web: ^0.1.1
 ```
 
 ## Quick start

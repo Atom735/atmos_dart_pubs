@@ -1,18 +1,12 @@
 # Changelog
 
-## 1.2.0
+Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
 
-### EN
+## 1.2.0
 
 - Expand README: document all presets (`lints`, `lints_2`, `full`, `full_2`) and when to use each
 - Improve package metadata (`description`, `topics`, monorepo `repository` / `issue_tracker`)
 - Refresh LICENSE formatting and copyright years
-
-### RU
-
-- Расширен README: описаны все пресеты (`lints`, `lints_2`, `full`, `full_2`) и когда какой выбирать
-- Улучшены метаданные пакета (`description`, `topics`, ссылки монорепо)
-- Обновлены оформление LICENSE и годы copyright
 
 ## 1.1.0
 

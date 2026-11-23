@@ -1,5 +1,7 @@
 # atmos_web_js_utils
 
+Русский: [README_RU.md](README_RU.md).
+
 Small **browser JS interop** helpers for Dart by [Atom735](https://github.com/Atom735).
 
 Built on `dart:js_interop` / `dart:js_util`: `JSObject` / `JSArray` indexing,
@@ -10,7 +12,7 @@ high-level helpers used by File System Access and Worker bindings.
 
 ```yaml
 dependencies:
-  atmos_web_js_utils: ^0.1.0
+  atmos_web_js_utils: ^0.1.1
 ```
 
 ## Quick start

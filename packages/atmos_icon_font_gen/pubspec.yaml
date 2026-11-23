@@ -1,0 +1,23 @@
+name: atmos_icon_font_gen
+version: 0.1.0
+description: >-
+  Generate a TrueType icon font and matching Dart IconData source from
+  named glyphs / SVG path data, using atmos_ttf — by Atom735.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_icon_font_gen
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_ttf: ^0.1.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - fonts
+  - icons
+  - codegen
+  - ttf

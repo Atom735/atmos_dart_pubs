@@ -1,78 +1,38 @@
 # Changelog
 
-## 2.1.1
+Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
 
-### EN
+## 2.1.1
 
 - Document reference machine setup and benchmark results in README
 
-### RU
-
-- В README добавлены сетап машины и результаты бенчмарков
-
 ## 2.1.0
-
-### EN
 
 - Add `read/writeBool`, `read/writeBytes`, `read/writeBytesSized`
 - Add `read/writeFourCC`, `read/writeUuid` (+ `Uuid` type), `read/writeCString`
 - Add `EpochUnit` and extend `read/writeDateTime`; add `read/writeDuration`
 - Add DWARF/WASM-style `read/writeUleb128` and `read/writeSleb128`
 
-### RU
-
-- Добавлены `read/writeBool`, `read/writeBytes`, `read/writeBytesSized`
-- Добавлены `read/writeFourCC`, `read/writeUuid` (+ тип `Uuid`), `read/writeCString`
-- Добавлен `EpochUnit`, расширены `read/writeDateTime`; добавлены `read/writeDuration`
-- Добавлены `read/writeUleb128` и `read/writeSleb128` в стиле DWARF/WASM
-
 ## 2.0.2
-
-### EN
 
 - Add `benchmark/` suite (`dart run benchmark/run.dart`)
 - Add `BinaryWriter.withCapacity` for preallocated output buffers
 - Speed up hot paths: inline pragmas on scalars, direct `uint8`/`int8` buffer access, batched packed `writeSize`
 - Reuse a scratch `ByteData` for `float32` bit-cast (helps `float16` / `bfloat16`)
 
-### RU
-
-- Добавлен набор бенчмарков (`dart run benchmark/run.dart`)
-- Добавлен `BinaryWriter.withCapacity` для заранее выделенного буфера
-- Ускорены hot-path: inline на скалярах, прямой доступ к буферу для `uint8`/`int8`, batched packed `writeSize`
-- Переиспользование scratch `ByteData` для bit-cast `float32` (помогает `float16` / `bfloat16`)
-
 ## 2.0.1
-
-### EN
 
 - Raise SDK constraint to `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9 toolchain)
 - Refresh package metadata (`description`, `topics`, monorepo links)
 - Polish README, LICENSE, and `.gitignore`; exclude `example/` from package analyze
 - Fix `full_2` analyzer nits (trailing commas, dartdoc template anchors)
 
-### RU
-
-- Поднят SDK до `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9)
-- Обновлены метаданные пакета (`description`, `topics`, ссылки монорепо)
-- Причёсаны README, LICENSE и `.gitignore`; `example/` исключён из analyze пакета
-- Исправлены замечания `full_2` (trailing commas, якоря dartdoc-шаблонов)
-
 ## 2.0.0
-
-### EN
 
 - add IEEE 754 `float16` and `bfloat16` conversion utilities, plus `float32` bit reinterpretation helpers
 - extend `BinaryReader`/`BinaryWriter` with `read/writeFloat16`, `read/writeBFloat16`, list methods, and short aliases (`rI/rU/rF*`, `wI/wU/wF*`)
 - add `BinaryReader` constructors for `TypedData`, `ByteData`, and `ByteBuffer`
 - reorganize and complete bilingual DartDoc (EN first, RU second), clean up templates/macros, and refresh public exports/docs
-
-### RU
-
-- добавлены утилиты конвертации IEEE 754 `float16` и `bfloat16`, а также хелперы реинтерпретации битов `float32`
-- расширены `BinaryReader`/`BinaryWriter`: `read/writeFloat16`, `read/writeBFloat16`, методы для списков и короткие алиасы (`rI/rU/rF*`, `wI/wU/wF*`)
-- добавлены конструкторы `BinaryReader` для `TypedData`, `ByteData` и `ByteBuffer`
-- переработан и дополнен двуязычный DartDoc (сначала EN, затем RU), очищены templates/macros и обновлены публичные экспорты/документация
 
 ## 1.0.1
 

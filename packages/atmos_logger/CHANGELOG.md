@@ -1,22 +1,14 @@
 # Changelog
 
-## 0.18.0
+Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
 
-### EN
+## 0.18.0
 
 - Raise SDK constraint to `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9 toolchain)
 - Fix Dart 3 compatibility: implement `ChunkedConversionSink` instead of extending it
 - Refresh package metadata (`description`, `topics`, monorepo links)
 - Expand README with install, quick start, levels, and IO entrypoint
 - Polish LICENSE copyright years; fix analyzer nits
-
-### RU
-
-- Поднят SDK до `>=3.0.0 <4.0.0` (Dart 3 / Flutter 3.16.9)
-- Совместимость с Dart 3: `ChunkedConversionSink` через `implements`, не `extends`
-- Обновлены метаданные пакета (`description`, `topics`, ссылки монорепо)
-- Расширен README: установка, быстрый старт, уровни, IO-entrypoint
-- Обновлён LICENSE; поправлены замечания analyzer
 
 ## 0.17.0
 

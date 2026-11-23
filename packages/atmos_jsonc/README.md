@@ -1,5 +1,7 @@
 # atmos_jsonc
 
+Русский: [README_RU.md](README_RU.md).
+
 Streaming **JSONC** decoder for Dart by [Atom735](https://github.com/Atom735).
 
 - `//` and `/* */` comments

@@ -1,5 +1,7 @@
 # atmos_lints
 
+Русский: [README_RU.md](README_RU.md).
+
 Shared Dart analyzer / linter presets for [Atom735](https://github.com/Atom735) packages.
 
 This package ships **YAML presets only** (no runtime Dart API). Include one of them from `analysis_options.yaml`.

@@ -1,5 +1,7 @@
 # atmos_web_worker
 
+Русский: [README_RU.md](README_RU.md).
+
 Dart bindings for browser
 **[Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)**
 by [Atom735](https://github.com/Atom735).
@@ -8,7 +10,7 @@ by [Atom735](https://github.com/Atom735).
 
 ```yaml
 dependencies:
-  atmos_web_worker: ^0.1.0
+  atmos_web_worker: ^0.1.1
 ```
 
 ## Quick start

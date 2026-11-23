@@ -1,5 +1,7 @@
 # atmos_binary_buffer
 
+Русский: [README_RU.md](README_RU.md).
+
 Binary reader/writer utilities for Dart by [Atom735](https://github.com/Atom735).
 
 Supports compact integer packing, typed list views, and IEEE 754 helpers

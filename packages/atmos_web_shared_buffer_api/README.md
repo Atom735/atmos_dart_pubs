@@ -1,5 +1,7 @@
 # atmos_web_shared_buffer_api
 
+Русский: [README_RU.md](README_RU.md).
+
 Dart bindings for browser
 **[SharedArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer)**
 and
@@ -10,7 +12,7 @@ by [Atom735](https://github.com/Atom735).
 
 ```yaml
 dependencies:
-  atmos_web_shared_buffer_api: ^0.1.0
+  atmos_web_shared_buffer_api: ^0.1.1
 ```
 
 ## Quick start

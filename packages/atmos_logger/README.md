@@ -1,5 +1,7 @@
 # atmos_logger
 
+Русский: [README_RU.md](README_RU.md).
+
 Lightweight **composable** logger for Dart and Flutter by [Atom735](https://github.com/Atom735).
 
 Build a pipeline by wrapping loggers: print / console / file / filter / buffer / broadcast / named scope.

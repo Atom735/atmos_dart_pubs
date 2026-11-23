@@ -1,5 +1,7 @@
 # atmos_multithreading_web
 
+Русский: [README_RU.md](README_RU.md).
+
 **Web Worker** pool backend for
 [`atmos_multithreading`](https://pub.dev/packages/atmos_multithreading) by
 [Atom735](https://github.com/Atom735).

@@ -11,7 +11,7 @@ English: [README.md](README.md).
 
 ```yaml
 dependencies:
-  atmos_web_local_font_access_api: ^0.1.0
+  atmos_web_local_font_access_api: ^0.1.1
 ```
 
 ## Быстрый старт

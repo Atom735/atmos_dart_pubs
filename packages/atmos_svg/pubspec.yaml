@@ -1,0 +1,23 @@
+name: atmos_svg
+version: 0.1.0
+description: >-
+  Pure-Dart SVG document model by Atom735 — parse, query, edit elements
+  and path data, then serialize back to XML.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_svg
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  xml: ^6.5.0
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - svg
+  - xml
+  - vector
+  - graphics

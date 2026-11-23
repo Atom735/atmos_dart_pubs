@@ -1,0 +1,54 @@
+// ignore_for_file: camel_case_types
+
+/// Автоматически сгенерированный файл.
+/// Сгенерировано с помощью <configs/cfg_gvg.dart>
+/// Не редактируйте его вручную.
+part of '../atmos_vg_assets.dart';
+
+/// Сгенерировано из:
+final class _ic_illustration_consultation_new extends AtmosAssetsVgBase {
+  const _ic_illustration_consultation_new() : super();
+
+  static final $vgContainer = VgContainer.fromBase64($base64);
+  static const $class = _ic_illustration_consultation_new();
+  static final $picture = $class.getPicture($frame);
+  static final $size = $class.getSize($frame);
+
+  @override
+  VgContainer get vgContainer => $vgContainer;
+
+  @override
+  int get flavorFrame => $frame;
+
+  @override
+  Picture? get flavorPicture => $picture;
+
+  @override
+  Size get flavorSize => $size;
+
+  @override
+  Map<AtmosVgFlavor, int> get frameIndexes => {
+        AtmosVgFlavor.fmba: 1,
+        AtmosVgFlavor.rthealth: 2,
+        AtmosVgFlavor.perm: 3,
+        AtmosVgFlavor.sverdlovsk: 4,
+        AtmosVgFlavor.yamalmed: 5,
+      };
+
+  static const $frame$fmba = AtmosVgFlavor$fmba.isCurrent ? 1 : null;
+  static const $frame$rthealth = AtmosVgFlavor$rthealth.isCurrent ? 2 : null;
+  static const $frame$perm = AtmosVgFlavor$perm.isCurrent ? 3 : null;
+  static const $frame$sverdlovsk = AtmosVgFlavor$sverdlovsk.isCurrent ? 4 : null;
+  static const $frame$yamalmed = AtmosVgFlavor$yamalmed.isCurrent ? 5 : null;
+  static const $frame =
+  // - begin
+  $frame$fmba ??
+      $frame$rthealth ??
+      $frame$perm ??
+      $frame$sverdlovsk ??
+      $frame$yamalmed ??
+      0;
+
+  static const $base64 =
+      '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';
+}

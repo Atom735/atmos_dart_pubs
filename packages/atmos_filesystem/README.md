@@ -1,5 +1,7 @@
 # atmos_filesystem
 
+Русский: [README_RU.md](README_RU.md).
+
 Portable, **VS Code–inspired** filesystem API for Dart by [Atom735](https://github.com/Atom735).
 
 URI-based resources, capability flags, and a provider interface similar to
@@ -12,7 +14,7 @@ whole file first.
 
 ```yaml
 dependencies:
-  atmos_filesystem: ^0.1.0
+  atmos_filesystem: ^0.1.1
 ```
 
 ## Quick start

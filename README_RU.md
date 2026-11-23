@@ -28,6 +28,16 @@ apps/
 | [atmos_lints](packages/atmos_lints) | Общие пресеты analyzer/linter (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Композируемый логгер (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 | [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU-атлас моноширинного текста, один `Canvas.drawAtlas` на кадр | [pub.dev](https://pub.dev/packages/atmos_tiled_text_renderer) |
+| [atmos_ttf](packages/atmos_ttf) | Ридер и билдер TrueType / OpenType (`sfnt`) | [pub.dev](https://pub.dev/packages/atmos_ttf) |
+| [atmos_svg](packages/atmos_svg) | Pure-Dart SVG DOM — разбор, поиск, правка, сериализация | [pub.dev](https://pub.dev/packages/atmos_svg) |
+| [atmos_icon_font_gen](packages/atmos_icon_font_gen) | Генерация иконочного TTF + Dart `IconData` через `atmos_ttf` | [pub.dev](https://pub.dev/packages/atmos_icon_font_gen) |
+| [atmos_vector_graphics_core](packages/atmos_vector_graphics_core) | Pure-Dart контейнер GVG3 + бинарный кодек | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_core) |
+| [atmos_vector_graphics_flutter](packages/atmos_vector_graphics_flutter) | Рендерер Flutter Canvas для GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_flutter) |
+| [atmos_vector_graphics_xml](packages/atmos_vector_graphics_xml) | SVG / Android Vector Drawable → GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_xml) |
+| [atmos_vg_assets](packages/atmos_vg_assets) | Демо GVG3 иконки/картинки (локально, не публикуется) | — |
+| [atmos_parser](packages/atmos_parser) | Композируемые типизированные парсеры с контекстом | [pub.dev](https://pub.dev/packages/atmos_parser) |
+| [atmos_cross_file](packages/atmos_cross_file) | Расширенный API поверх \`cross_file\` (chunked FS / RAM) | [pub.dev](https://pub.dev/packages/atmos_cross_file) |
+| [atmos_http_client](packages/atmos_http_client) | Типизированные HTTP-запросы и хелперы клиента | [pub.dev](https://pub.dev/packages/atmos_http_client) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Парсинг цветовых тем VS Code / Cursor (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Тема → Flutter `ColorScheme` / `ThemeData` | [pub.dev](https://pub.dev/packages/atmos_vsc_theme_flutter) |
 | [atmos_vsc_ui](packages/atmos_vsc_ui) | Виджеты workbench в духе VS Code (без Material / Cupertino) | [pub.dev](https://pub.dev/packages/atmos_vsc_ui) |

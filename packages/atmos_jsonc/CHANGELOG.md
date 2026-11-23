@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0
+Русский: [CHANGELOG_RU.md](CHANGELOG_RU.md).
 
-### EN
+## 0.1.0
 
 - Initial release: single-pass `jsoncDecode` / `JsoncDecoder` / `jsonc` codec
 - JSONC: `//` and `/* */` comments, trailing commas
@@ -14,16 +14,3 @@
 - `jsoncDecodeUtf8` / `JsoncUtf8Decoder` / `jsoncUtf8` (UTF-8 bytes, no full `String`)
 - Benchmarks vs `dart:convert` `JsonDecoder` (time + RSS), plus reviver/bind/utf8
 - Runnable examples in `example/example.dart`
-
-### RU
-
-- Первый релиз: однопроходный `jsoncDecode` / `JsoncDecoder` / кодек `jsonc`
-- JSONC: комментарии `//` и `/* */`, trailing commas
-- Хелпер `stripJsonc` (больше памяти; лучше прямой decode)
-- Path-`reviver` со стеком `JsoncPath` на прямом tree-пути
-- SAX `jsoncVisit` / `JsoncVisitor` (без промежуточного `Map`)
-- Pull API: `JsoncReader`, `JsoncBinder`, `jsoncBind`
-- Оптимизации hot-path: ручной int parse, локальный `skipNoise`, reuse path
-- `jsoncDecodeUtf8` / `JsoncUtf8Decoder` / `jsoncUtf8` (UTF-8 байты, без полной `String`)
-- Бенчмарки против `JsonDecoder` (время + RSS), плюс reviver/bind/utf8
-- Примеры в `example/example.dart`

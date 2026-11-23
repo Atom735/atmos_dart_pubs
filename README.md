@@ -28,6 +28,16 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_lints](packages/atmos_lints) | Shared analyzer/linter presets (`lints` / `full` / `_2`) | [pub.dev](https://pub.dev/packages/atmos_lints) |
 | [atmos_logger](packages/atmos_logger) | Composable logger (console / file / filter) | [pub.dev](https://pub.dev/packages/atmos_logger) |
 | [atmos_tiled_text_renderer](packages/atmos_tiled_text_renderer) | GPU monospace text atlas, one `Canvas.drawAtlas` per frame | [pub.dev](https://pub.dev/packages/atmos_tiled_text_renderer) |
+| [atmos_ttf](packages/atmos_ttf) | TrueType / OpenType (`sfnt`) reader and builder | [pub.dev](https://pub.dev/packages/atmos_ttf) |
+| [atmos_svg](packages/atmos_svg) | Pure-Dart SVG DOM — parse, query, edit, serialize | [pub.dev](https://pub.dev/packages/atmos_svg) |
+| [atmos_icon_font_gen](packages/atmos_icon_font_gen) | Generate icon TTF + Dart `IconData` source via `atmos_ttf` | [pub.dev](https://pub.dev/packages/atmos_icon_font_gen) |
+| [atmos_vector_graphics_core](packages/atmos_vector_graphics_core) | Pure-Dart GVG3 vector container + binary codec | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_core) |
+| [atmos_vector_graphics_flutter](packages/atmos_vector_graphics_flutter) | Flutter Canvas renderer for GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_flutter) |
+| [atmos_vector_graphics_xml](packages/atmos_vector_graphics_xml) | SVG / Android Vector Drawable → GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_xml) |
+| [atmos_vg_assets](packages/atmos_vg_assets) | Demo GVG3 icons/pictures (local, not published) | — |
+| [atmos_parser](packages/atmos_parser) | Composable typed parsers with context / warnings | [pub.dev](https://pub.dev/packages/atmos_parser) |
+| [atmos_cross_file](packages/atmos_cross_file) | Extended \`cross_file\` API (chunked FS / RAM) | [pub.dev](https://pub.dev/packages/atmos_cross_file) |
+| [atmos_http_client](packages/atmos_http_client) | Typed HTTP request models and client helpers | [pub.dev](https://pub.dev/packages/atmos_http_client) |
 | [atmos_vsc_theme](packages/atmos_vsc_theme) | Parse VS Code / Cursor color themes (JSONC, `include`) | [pub.dev](https://pub.dev/packages/atmos_vsc_theme) |
 | [atmos_vsc_theme_flutter](packages/atmos_vsc_theme_flutter) | Theme → Flutter `ColorScheme` / `ThemeData` | [pub.dev](https://pub.dev/packages/atmos_vsc_theme_flutter) |
 | [atmos_vsc_ui](packages/atmos_vsc_ui) | VS Code-like workbench widgets (no Material / Cupertino) | [pub.dev](https://pub.dev/packages/atmos_vsc_ui) |

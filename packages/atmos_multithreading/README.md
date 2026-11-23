@@ -1,5 +1,7 @@
 # atmos_multithreading
 
+Русский: [README_RU.md](README_RU.md).
+
 Portable **parallel compute** API for Dart by [Atom735](https://github.com/Atom735).
 
 Jobs are named handlers that receive a serializable payload and return a result.

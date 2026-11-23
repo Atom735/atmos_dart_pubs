@@ -1,0 +1,23 @@
+name: atmos_ttf
+version: 0.1.0
+description: >-
+  Pure-Dart TrueType / OpenType (sfnt) reader and builder by Atom735 —
+  table directory, glyphs, and font rebuild for icon fonts.
+repository: https://github.com/Atom735/atmos_dart_pubs/tree/main/packages/atmos_ttf
+issue_tracker: https://github.com/Atom735/atmos_dart_pubs/issues
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  atmos_binary_buffer: ^2.1.1
+
+dev_dependencies:
+  atmos_lints: ^1.2.0
+  test: ^1.24.0
+
+topics:
+  - fonts
+  - ttf
+  - opentype
+  - binary
