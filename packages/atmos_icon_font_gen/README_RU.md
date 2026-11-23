@@ -45,7 +45,15 @@ void main() {
 }
 ```
 
-Ось Y SVG переворачивается в пространство шрифта (высота viewBox по умолчанию = `unitsPerEm`). Готовые контуры в единицах шрифта можно передать через `contours` (`TtfContour`).
+Ось Y SVG переворачивается в пространство шрифта (высота viewBox по умолчанию = `unitsPerEm`). Готовые контуры в единицах шрифта можно передать через `contours` (`TtfContour`). Целые SVG-файлы: `svgDocumentFirstPathD` (через `atmos_svg`) берёт первый `<path d>`.
+
+### CLI
+
+```bash
+dart run atmos_icon_font_gen --input icons/ \
+  --out-ttf assets/my_icons.ttf --out-dart lib/src/my_icons.g.dart \
+  --family MyIcons --class MyIcons
+```
 
 ## Лицензия
 

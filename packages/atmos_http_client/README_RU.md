@@ -2,7 +2,7 @@
 
 English: [README.md](README.md).
 
-Типизированные модели HTTP-запросов и хелперы клиента для Dart — by Atom735.
+Типизированные модели HTTP-запросов и тонкий клиент на `package:http` для Dart — by Atom735.
 
 ## Установка
 
@@ -16,12 +16,20 @@ dependencies:
 ```dart
 import 'package:atmos_http_client/atmos_http_client.dart';
 
-Future<void> ping(AtmosHttpClient client) async {
-  await client.send('GET', Uri.parse('https://example.com/'));
+Future<void> main() async {
+  final client = AtmosHttpClientHttp();
+  final response = await client.send(
+    AtmosHttpRequestJson(
+      'POST',
+      Uri.parse('https://httpbin.org/post'),
+      body: {'ok': true},
+    ),
+  );
+  // ignore: avoid_print
+  print(response.statusCode);
+  client.close();
 }
 ```
-
-Sealed-иерархия запросов: `AtmosHttpRequestBase` (части JSON / multipart в `src/request/`).
 
 ## Лицензия
 

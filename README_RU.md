@@ -34,7 +34,7 @@ apps/
 | [atmos_vector_graphics_core](packages/atmos_vector_graphics_core) | Pure-Dart контейнер GVG3 + бинарный кодек | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_core) |
 | [atmos_vector_graphics_flutter](packages/atmos_vector_graphics_flutter) | Рендерер Flutter Canvas для GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_flutter) |
 | [atmos_vector_graphics_xml](packages/atmos_vector_graphics_xml) | SVG / Android Vector Drawable → GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_xml) |
-| [atmos_vg_assets](packages/atmos_vg_assets) | Демо GVG3 иконки/картинки (локально, не публикуется) | — |
+| [atmos_vg_gen](packages/atmos_vg_gen) | SVG → GVG3 → Dart / Flutter codegen + HTML-превью | [pub.dev](https://pub.dev/packages/atmos_vg_gen) |
 | [atmos_parser](packages/atmos_parser) | Композируемые типизированные парсеры с контекстом | [pub.dev](https://pub.dev/packages/atmos_parser) |
 | [atmos_cross_file](packages/atmos_cross_file) | Расширенный API поверх \`cross_file\` (chunked FS / RAM) | [pub.dev](https://pub.dev/packages/atmos_cross_file) |
 | [atmos_http_client](packages/atmos_http_client) | Типизированные HTTP-запросы и хелперы клиента | [pub.dev](https://pub.dev/packages/atmos_http_client) |

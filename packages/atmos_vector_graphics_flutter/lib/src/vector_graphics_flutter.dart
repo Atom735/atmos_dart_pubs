@@ -8,3 +8,4 @@ part 'vg_enums.dart';
 part 'vg_path.dart';
 part 'vg_paint.dart';
 part 'vg_container.dart';
+part 'vg_widget.dart';

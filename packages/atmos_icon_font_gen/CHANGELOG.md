@@ -8,3 +8,5 @@
 - Build a TrueType font via `atmos_ttf`
 - Emit Dart source with `IconData` constants (tree-shake friendly)
 - Basic SVG path parser (`M L H V C Q Z` and relative forms)
+- `svgDocumentFirstPathD` via `atmos_svg`
+- CLI `atmos_icon_font_gen` (directory of SVGs → TTF + Dart)

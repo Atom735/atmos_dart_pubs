@@ -16,4 +16,5 @@ export 'src/dart_emitter.dart';
 export 'src/generator.dart';
 export 'src/names.dart';
 export 'src/spec.dart';
+export 'src/svg_file.dart';
 export 'src/svg_path.dart';

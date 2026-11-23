@@ -34,7 +34,7 @@ Each package under `packages/` is published independently to [pub.dev](https://p
 | [atmos_vector_graphics_core](packages/atmos_vector_graphics_core) | Pure-Dart GVG3 vector container + binary codec | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_core) |
 | [atmos_vector_graphics_flutter](packages/atmos_vector_graphics_flutter) | Flutter Canvas renderer for GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_flutter) |
 | [atmos_vector_graphics_xml](packages/atmos_vector_graphics_xml) | SVG / Android Vector Drawable → GVG3 | [pub.dev](https://pub.dev/packages/atmos_vector_graphics_xml) |
-| [atmos_vg_assets](packages/atmos_vg_assets) | Demo GVG3 icons/pictures (local, not published) | — |
+| [atmos_vg_gen](packages/atmos_vg_gen) | SVG → GVG3 → Dart / Flutter codegen + HTML preview | [pub.dev](https://pub.dev/packages/atmos_vg_gen) |
 | [atmos_parser](packages/atmos_parser) | Composable typed parsers with context / warnings | [pub.dev](https://pub.dev/packages/atmos_parser) |
 | [atmos_cross_file](packages/atmos_cross_file) | Extended \`cross_file\` API (chunked FS / RAM) | [pub.dev](https://pub.dev/packages/atmos_cross_file) |
 | [atmos_http_client](packages/atmos_http_client) | Typed HTTP request models and client helpers | [pub.dev](https://pub.dev/packages/atmos_http_client) |

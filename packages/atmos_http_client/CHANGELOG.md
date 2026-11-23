@@ -4,6 +4,6 @@
 
 ## 0.1.0
 
-- Sealed \`AtmosHttpRequestBase\` hierarchy (JSON / multipart stubs)
-- \`AtmosHttpClient\` / config scaffolding
+- Sealed `AtmosHttpRequestBase` with JSON / multipart variants
+- `AtmosHttpClientHttp` over `package:http`
 - Pure Dart (no Flutter SDK)

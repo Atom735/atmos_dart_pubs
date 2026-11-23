@@ -45,7 +45,15 @@ void main() {
 }
 ```
 
-SVG Y is flipped into font space (viewBox height = `unitsPerEm` by default). Pass ready `TtfContour` lists via `contours` when you already have font-unit outlines.
+SVG Y is flipped into font space (viewBox height = `unitsPerEm` by default). Pass ready `TtfContour` lists via `contours` when you already have font-unit outlines. Full SVG files: `svgDocumentFirstPathD` (via `atmos_svg`) picks the first `<path d>`.
+
+### CLI
+
+```bash
+dart run atmos_icon_font_gen --input icons/ \
+  --out-ttf assets/my_icons.ttf --out-dart lib/src/my_icons.g.dart \
+  --family MyIcons --class MyIcons
+```
 
 ## License
 

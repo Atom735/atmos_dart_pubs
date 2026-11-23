@@ -10,11 +10,17 @@ environment:
   sdk: '>=3.2.0 <4.0.0'
 
 dependencies:
+  args: ^2.4.0
+  atmos_svg: ^0.1.0
   atmos_ttf: ^0.1.0
+  path: ^1.8.0
 
 dev_dependencies:
   atmos_lints: ^1.2.0
   test: ^1.24.0
+
+executables:
+  atmos_icon_font_gen: atmos_icon_font_gen
 
 topics:
   - fonts
